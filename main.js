@@ -141,8 +141,6 @@ while(zapatillas > 4 || zapatillas < 1) {
 
 
 
-//Creamos un while con las condiciones de que solo se puedan seleccionar de numero 1 a 4 y si no se cumple aparece un alert
-
 
 
 
