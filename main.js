@@ -10,87 +10,119 @@ if ((usuario !="") && (contraseña !="")){
 }else{
         alert("Error: Ingresar usuario y contraseña")
         let usuario = prompt("Porfavor ingrese su usuario")
-        let contraseña = prompt("Porfavor ingrese su contraseña") 
+        let contraseña = prompt("Porfavor ingrese su contraseña")
+        while(usuario == "" || contraseña == "") {
+                alert("Porfavor ingrese los datos correctos")
+        } 
 }
 
-//Declaramos constantes para realizar operaciones basicas 
+//Creo una funcion para mostrar el menu (Aclaro que solo lo hice con una sola marca)
 
-const suma = (a,b) => a + b;
-const sumar  = (a,b,c,d) => a + b + c + d;
-const resta = (a,b) => a - b;
-const multiplicacion  = (a,b) => a * b;
-
-//Declaramos variables para los productos y cantidad
-
-let total = 0
-let cantidad = 0
-let shoes =  0
-let rebook = 0
-let adidas = 0
-let topper = 0
-let nike = 0
-let zapatillas = 0
-let precioRebook = 1200
-let precioNike = 3000
-let precioTopper = 4000
-let precioAdidas = 8000
-let resultado1 = 0
-let resultado2 = 0
-let resultado3 = 0
-let resultado4 = 0
-
-//Asignamos un prompt para que el usuario elija que zapatillas comprar y la cantidad
-
-while(zapatillas > 4 || zapatillas < 1) {
-        let zapatillas = prompt(`Elija el modelo que mas le guste colocando un numero del 1 al 4, para proceder al carrito presione 5
-        \n1. Rebook ($1200)
-        \n2. Adidas Fly 2 ($8000)
-        \n3. Topper max ($4000)
-        \n4. Nike Jordan Fly 3 ($3000)
-        \n5. Ir al carrito
-        \n6. Ir al pago`
-        )
-        
-        switch (zapatillas) {  
+function mostraMenu(menu) {
+        if(menu > 1 || menu < 3){
+            switch(menu) {
                 case "1":
-                        cantidad = parseInt(prompt("Cuantos pares desea llevar?"))
-                        rebook = suma(rebook, cantidad)
-                        resultado1 = cantidad * precioRebook
+                    zapatillasMenu()
                 break;
-                case "2":
-                        cantidad = parseInt(prompt("Cuantos pares desea llevar?"))
-                        adidas = suma(adidas, cantidad)
-                        resultado2 = cantidad * precioAdidas
+                default:
+                    
                 break;
-                case "3":
-                        cantidad = parseInt(prompt("Cuantos pares desea llevar"))
-                        topper = suma(topper, cantidad)
-                        resultado3 = cantidad * precioTopper
-                break;
-                case "4":
-                        cantidad = parseInt(prompt("Cuantos pares desea llevar"))
-                        nike = suma(nike, cantidad)
-                        resultado4 = cantidad * precioNike
-                        
-                break;
-                default:   
-                break;         
+            }
+        }else {
+            alert("No selecciono ningun producto")
+        }
+    }
+    
+    mostraMenu(prompt("Porfavor elegir un producto \n1 Zapatillas" ))
+    
+//Creamos una funcion con las zapatillas junto a un if y un prompt
+    
+function zapatillasMenu(zapas) {
+        
+        zapas = prompt("Elija su marca de preferencia e ingrese un numero \n1 Nike" )
+        
+        if(zapas == 1) {
+            nike()
+        }
+}
+    
+//Creamos funcion de la marca y que modelos tiene 
+    
+function nike() {
+        
+        let pregunta = prompt("Si su respuesta es si, se le mostrara la lista de productos o no para proceder")
+    
+//Declaramos un array para mostrar los nuevos modelos ingresados
+    
+        const productosNike = [
+            { id: 1, nombre: "Nike Precision V", precio: "$1200"},
+            { id: 2, nombre: "Nike LeBron Witness 6", precio: "900"},
+        ];
+    
+//Se crea el while para la pregunta dependiendo de lo que de el usuario
+    
+        while(pregunta != "si" && pregunta != "no") {
+            alert("Seleccione una opcion, porfavor")
+            pregunta = prompt("Si su respuesta es si,se le mostrara la lista de productos o no para proceder")
+        }
+    
+//Un if en caso que la pregunta sea si, dentro del mismo una variable, integrada por metodo de array (map y join) junto a un alert asi demostrando la lista de productos existentes
+    
+        if(pregunta == "si") {
+            let listaproductos = productosNike.map((opciones) => opciones.nombre);
+            alert("Las nuevas zapas ingresadas son " + "\n" + listaproductos.join(" , "))
         }
         
-        //Creamos un switch para proceder a los distintos metodos de pago
+        let talle = 0
         
-        switch (zapatillas) {
-                case "5":
-                        operacion = sumar(resultado1, resultado2, resultado3, resultado4 ) 
-                        zapatillas = parseInt(prompt(`El valor total es ` + `$` + operacion + `  y este es su carrito:
-                        \n Rebook ${rebook} par/es
-                        \n Adidas ${adidas} par/es   
-                        \n Topper ${topper} par/es    
-                        \n Nike ${nike} par/es
-                        \n Puede proceder a pagar dando al ENTER y presionando el 6`))
-                break;
+//Una funcion constructora para utilizar los elementos declarados de la misma y definir las caracteristicas de cada zapatilla junto a loselementos tanto nombre, precio y talle a eleccion
+    
+        class Tienda{
+            constructor(nombre, precio, talle) {
+                this.nombre = nombre; 
+                this.precio = precio,
+                this.talle = prompt("Ingrese su talle");
+            }
+        
+        }
+        
+        let nike = prompt("Ingrese el modelo de preferencia \n1 Nike Precision V \n2 Nike LeBron Witness 6")
+    
+//De acuerdo al modelo que elija el usuario, el switch hara su trabajo y mostrara por alert el producto elejido
+        
+        switch(nike) {
+            case "1":
+                const nike1 = new Tienda("Nike Precision V", "$500", talle)
+                alert(`Este es el producto que usted eligio \nNombre : ${nike1.nombre} \n Su talle elegido es : ${nike1.talle}\n Precio : ${nike1.precio}`)
+                preguntar()
+            break;
+            case "2":
+                const nike2 = new Tienda("Nike Lebron witness 6", "$1200", talle) 
+                alert(`Este es el producto que usted eligio \nNombre : ${nike2.nombre} \n Su talle elegio es : ${nike2.talle}\n Precio : ${nike2.precio}`) 
+                preguntar()
+            break;
+            default:
+                alert("Seleccione un numero")
+            break;
+        }
+    
+}
+    
+//Funcion para preguntar si desea algo mas el comprador
+    
+function preguntar() {
+        let preguntaCompra = prompt("Desea comprar algo mas?")
+        
+        if(preguntaCompra == "si") {
+            mostraMenu(prompt("Porfavor elegir un producto \n1 Zapatillas" ))
+        } else (preguntaCompra == "no") 
+            alert("Abandono la compra, que tenga buenos dias")
+        
+}
 
-                case "6":
+
+
+                /*case "6":
                         let efectivo = ""
                         let transferencia = ""
                         let tarjeta = ""
@@ -137,7 +169,7 @@ while(zapatillas > 4 || zapatillas < 1) {
                 default:
                 break;
         }
-}
+}*/
 
 
 
