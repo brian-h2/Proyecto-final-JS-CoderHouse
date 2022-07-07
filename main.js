@@ -42,6 +42,8 @@ if ((usuario !="") && (contraseña !="")){
         let contraseña = prompt("Porfavor ingrese su contraseña")
         while(usuario == "" || contraseña == "") {
                 alert("Porfavor ingrese los datos correctos")
+                let usuario = prompt("Porfavor ingrese su usuario")
+                let contraseña = prompt("Porfavor ingrese su contraseña")
         } 
 }
 
@@ -56,7 +58,8 @@ function mostraMenu(menu) {
                         case "2":
                                 noSabesQueBuscar()
                         default:
-                        alert("Seleccione una opcion valida")
+                                alert("Seleccione una opcion valida")
+                                mostraMenu()
                         break;
                 }
         }else {
@@ -240,28 +243,28 @@ function pagos() {
 
 //Manejo de DOM (Aclaro que imprime los precios del array lista1)
 
-let lista1 = [{ id: 1, nombre: "Under Armour Charged Spawn 3", precio: 32500},
-                { id: 2, nombre: "Charged Essential Under Armour", precio: 42300},
-                { id: 3, nombre: "Hoops 3.0 Mid Classic Vintage", precio: 15500},
-                { id: 4, nombre: "Adidas Cross Em Up 5K", precio: 12000},]
 
-let productosEnHtml = document.getElementById("productosZapas")
 
-for(const zapatillas of lista1){
-    
-        let variableOne = document.createElement("span")
-        
-        variableOne.innerHTML= 
-        
-        `<p> Numero de compra: ${zapatillas.id} </p>
-        <p> Modelo: ${zapatillas.nombre} </p>
-        <p> Precio: ${zapatillas.precio} </p>
-        `
-        productosEnHtml.append(variableOne)
+let title = document.getElementById("#title")
+
+console.log(title.innerHTML)
+
+title.innerHTML = "Bienvenido"
+
+console.log(title.innerHTML)
+
+for (const zapatilla of lista) {
+        let contenedor = document.createElement("div")
+
+        contenedor.innerHTML = `<h2> Nombre: ${zapatilla.nombre}</h2>
+                                <p> Precio: ${zapatilla.precio} </p>`
+
+        document.body.appendChild(contenedor)
 }
+        
+        
 
-
-
+        
 
 
 

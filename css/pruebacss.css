@@ -38,6 +38,19 @@ body {
       width: 100%;
       object-fit: cover; }
 
+.titulo-productos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  max-width: 600px;
+  width: 100%;
+  margin-top: 30px;
+  border-bottom: 1px solid black;
+  border-width: 1px;
+  font-size: 45px;
+  color: red; }
+
 /*Tarjetas*/
 .main-colecciones {
   background-color: white;
@@ -281,6 +294,13 @@ body {
   .imagen-footer img {
     width: 100%;
     height: 100%; }
+
+.tarjetas-compra {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  justify-content: space-evenly; }
 
 footer {
   display: flex;
