@@ -16,12 +16,15 @@ class Tienda{
 }
 
 function preguntar() {
-        let preguntaCompra = prompt("Por el momento no tenemos mas stock del que podemos ofrecerle, mil disculpas!(Escriba ok para proceder al carrito")
         
-        if(preguntaCompra == "ok") {
-                alert("Sera redirigido a su carrito") 
+        let preguntaCompra = prompt("Quiere comprar algo mas? si/no")
+   
+        if(preguntaCompra == "si") {
+                zapatillasMenu()
+               
+        } else (preguntaCompra == "no") 
+                alert("Sera redirigido a su carrito")
                 carrito()
-        }
             
 }
 
@@ -60,10 +63,25 @@ function mostraMenu(menu) {
     
 mostraMenu(prompt("Porfavor elegir un producto \n1 Zapatillas \n2 Buscar" ))
 
+function noSabesQueBuscar() {
+        const terminos = [
+                {nombre: "adidas"},
+        ]
+
+        listadudas = terminos.map((opciones) => opciones.nombre);
+        alert("Estos son los terminos mas buscados, ingrese alguno de preferencia " + "\n" + listadudas.join("\n"))
+
+        let preguntaDudas = prompt("Si no sabe que encontrar en la tienda puede escribir algun termino de los que aparecieron anteriormente" ) 
+
+        const questionOne = terminos.find((el) => el.nombre === "adidas")
+        questionOne = adidas()
+
+}
+
 
 function zapatillasMenu() {
         
-        let zapatillasPregunta = prompt(`Seleccione su marca preferida \n1. Adidas \n2. Under Armour \n3. Nike`)
+        let zapatillasPregunta = prompt(`Seleccione su marca preferida \n1. Adidas \n2. Under Armour`)
         
         if (zapatillasPregunta == "1") {
                 adidas()
@@ -89,49 +107,53 @@ function adidas() {
 
         let adidasLista = prompt("Ingrese el modelo que mas le guste \n1 Hoops 3.0 Mid Classic Vintage \n2 Adidas Cross Em Up 5k \n3 Adidas Next level \n4 Adidas Trae Young 1")
 
-        switch(adidasLista) {
-                case "1":
-                        const adidas1 = new Tienda("Adidas Hoops 3.0", 15600, talle)
-                        alert(`Este es el producto que usted eligio \n Nombre : ${adidas1.nombre} \n Su talle elegido es : ${adidas1.talle}\n Precio $ : ${adidas1.precio}`)
-                        cantidad = parseInt(prompt(`Porfavor ingrese la cantidad de pares`))
-                        totalAdidas1 = multi(cantidad, 15600)
-                        precioAdidasOne= sumar(totalAdidas1, 0)
-                        lista.push(`Modelo: ${adidas1.nombre} precio: ${precioAdidasOne} pesos`)
-                       
-                break;
-                case "2":
-                        const adidas2 = new Tienda("Adidas Cross Em Up 5K", 12000, talle)
-                      
-                        alert(`Este es el producto que usted eligio \nNombre : ${adidas2.nombre} \n Su talle elegido es : ${adidas2.talle} \n Precio $ : ${adidas2.precio}`)
-                        cantidad = parseInt(prompt(`Porfavor ingrese la cantidad de pares`))
-                        totalAdidas2 = multi(cantidad, 12000)
-                        precioAdidasTwo= sumar(totalAdidas2, 0)
-                        lista.push(`Modelo: ${adidas2.nombre} precio: ${precioAdidasTwo} pesos`)
-                        
-                break;
-                case "3":
-                        const adidas3 = new Tienda("Adidas Next Level", 39500, talle)
-                        alert(`Este es el producto que usted eligio \nNonbre : ${adidas3.nombre} \n Su talle elegido es : ${adidas3.talle} \n Precio $ : ${adidas3.precio}`)
-                        cantidad = parseInt(prompt(`Porfavor ingrese la cantidad de pares`))
-                        totalAdidas3 = multi(cantidad, 39500)
-                        precioAdidasThree= sumar(totalAdidas3, 0)
-                        lista.push(`Modelo: ${adidas3.nombre} precio: ${precioAdidasThree} pesos`)
-                       
-                break;
-                case "4":
-                        const adidas4 = new Tienda("Adidas Trae Young 1", 43300, talle)
-                        alert(`Este es el producto que usted eligio \nNombre : ${adidas4.nombre} \n Su talle elegido es : ${adidas4.talle} \n Precio $ : ${adidas4.precio}`)
-                        cantidad = parseInt(prompt(`Porfavor ingrese la cantidad de pares`))
-                        totalAdidas4 = multi(cantidad, 12000)
-                        precioAdidasFour= sumar(totalAdidas4, 0)
-                        lista.push(`Modelo: ${adidas4.nombre} precio: ${precioAdidasFour} pesos`)
-                        
-                break;
-                default:
-                        alert("Elija un numero porfavor")
-                break;
-                }
-        preguntar()
+        if (adidasLista > 0 || adidasLista < 3) {
+                switch(adidasLista) {
+                        case "1":
+                                const adidas1 = new Tienda("Adidas Hoops 3.0", 15600, talle)
+                                alert(`Este es el producto que usted eligio \n Nombre : ${adidas1.nombre} \n Su talle elegido es : ${adidas1.talle}\n Precio $ : ${adidas1.precio}`)
+                                cantidad = parseInt(prompt(`Porfavor ingrese la cantidad de pares`))
+                                totalAdidas1 = multi(cantidad, 15600)
+                                precioAdidasOne= sumar(totalAdidas1, 0)
+                                lista.push(`Modelo: ${adidas1.nombre} precio: ${precioAdidasOne} pesos`)
+                               
+                        break;
+                        case "2":
+                                const adidas2 = new Tienda("Adidas Cross Em Up 5K", 12000, talle)
+                              
+                                alert(`Este es el producto que usted eligio \nNombre : ${adidas2.nombre} \n Su talle elegido es : ${adidas2.talle} \n Precio $ : ${adidas2.precio}`)
+                                cantidad = parseInt(prompt(`Porfavor ingrese la cantidad de pares`))
+                                totalAdidas2 = multi(cantidad, 12000)
+                                precioAdidasTwo= sumar(totalAdidas2, 0)
+                                lista.push(`Modelo: ${adidas2.nombre} precio: ${precioAdidasTwo} pesos`)
+                                
+                        break;
+                        case "3":
+                                const adidas3 = new Tienda("Adidas Next Level", 39500, talle)
+                                alert(`Este es el producto que usted eligio \nNonbre : ${adidas3.nombre} \n Su talle elegido es : ${adidas3.talle} \n Precio $ : ${adidas3.precio}`)
+                                cantidad = parseInt(prompt(`Porfavor ingrese la cantidad de pares`))
+                                totalAdidas3 = multi(cantidad, 39500)
+                                precioAdidasThree= sumar(totalAdidas3, 0)
+                                lista.push(`Modelo: ${adidas3.nombre} precio: ${precioAdidasThree} pesos`)
+                               
+                        break;
+                        case "4":
+                                const adidas4 = new Tienda("Adidas Trae Young 1", 43300, talle)
+                                alert(`Este es el producto que usted eligio \nNombre : ${adidas4.nombre} \n Su talle elegido es : ${adidas4.talle} \n Precio $ : ${adidas4.precio}`)
+                                cantidad = parseInt(prompt(`Porfavor ingrese la cantidad de pares`))
+                                totalAdidas4 = multi(cantidad, 12000)
+                                precioAdidasFour= sumar(totalAdidas4, 0)
+                                lista.push(`Modelo: ${adidas4.nombre} precio: ${precioAdidasFour} pesos`)
+                                
+                        break;
+                        default:
+                        break;
+                        }
+                preguntar()
+        } else {
+                alert("Seleccione un numero porfavor")
+        }
+
 }
 
 
@@ -210,7 +232,7 @@ function pagos() {
                         alert("Se completo el pago de acuerdo a las cuotas seleccionadas")
                 break;
                 default: 
-                        
+                        alert("Seleccion un numero porfavor")
                 break 
         }   
 }
