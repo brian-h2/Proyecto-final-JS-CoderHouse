@@ -20,12 +20,15 @@ function preguntar() {
         let preguntaCompra = prompt("Quiere comprar algo mas? si/no")
    
         if(preguntaCompra == "si") {
-                zapatillasMenu()
+                mostraMenu()
                
-        } else (preguntaCompra == "no") 
+        } else if(preguntaCompra == "no") {
                 alert("Sera redirigido a su carrito")
                 carrito()
-            
+        } else {
+                alert('Ingrese una opción valida')
+                preguntar()
+        }    
 }
 
 let usuario = prompt("Porfavor ingrese su usuario")
@@ -54,11 +57,9 @@ function mostraMenu(menu) {
                                 noSabesQueBuscar()
                         default:
                         alert("Seleccione una opcion valida")
-                        mostraMenu(prompt("Porfavor elegir un producto \n1 Zapatillas \n2 Buscar" ))
                         break;
                 }
         }else {
-                alert("No selecciono ningun producto")
                 mostraMenu(prompt("Porfavor elegir un producto \n1 Zapatillas \n2 Buscar" ))
         }
     }
@@ -80,7 +81,6 @@ function noSabesQueBuscar() {
 
 }
 
-
 function zapatillasMenu() {
         
         let zapatillasPregunta = prompt(`Seleccione su marca preferida \n1. Adidas \n2. Under Armour`)
@@ -94,9 +94,6 @@ function zapatillasMenu() {
                 zapatillasPregunta = prompt(`Seleccione su marca preferida \n1. Adidas \n2. Under Armour`)
         }
 }
-
-    
-//Function constructora para integrar los productos con respectivas caracteristicas
 
 
 function adidas() {
@@ -236,6 +233,7 @@ function pagos() {
                 break;
                 default: 
                         alert("Seleccion un numero porfavor")
+                        pagos()
                 break 
         }   
 }
