@@ -46,18 +46,20 @@ if ((usuario !="") && (contraseña !="")){
 
 function mostraMenu(menu) {
         if(menu > 1 || menu < 3){
-            switch(menu) {
-                case "1":
-                    zapatillasMenu()
-                break;
-                case "2":
-                        noSabesQueBuscar()
-                default:
-                    
-                break;
-            }
+                switch(menu) {
+                        case "1":
+                                zapatillasMenu()
+                        break;
+                        case "2":
+                                noSabesQueBuscar()
+                        default:
+                        alert("Seleccione una opcion valida")
+                        mostraMenu(prompt("Porfavor elegir un producto \n1 Zapatillas \n2 Buscar" ))
+                        break;
+                }
         }else {
-            alert("No selecciono ningun producto")
+                alert("No selecciono ningun producto")
+                mostraMenu(prompt("Porfavor elegir un producto \n1 Zapatillas \n2 Buscar" ))
         }
     }
     
@@ -89,6 +91,7 @@ function zapatillasMenu() {
                 underArmour()
         } else {
                 alert("Seleccione un termino correcto")
+                zapatillasPregunta = prompt(`Seleccione su marca preferida \n1. Adidas \n2. Under Armour`)
         }
 }
 
