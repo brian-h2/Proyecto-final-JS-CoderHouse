@@ -15,30 +15,36 @@
 <body>
     
     <!--MENU DE NAVEGACION-->
-    <nav>
-        <img src="../img/nav/logo.png" alt="logode basket">
+    <h1 id="#title" class="titulo-productos">
+        Estos son nuestros productos
+    </h1>
+    <nav class="nav-productos">
         <a href="../index.html">Home</a>
-        <a href="#seccion-1">Productos</a>
+        <a href="#seccion-1">Calzado</a>
+        <a href="">Camisetas</a>
         <a href="#seccion-2">Carrito</a>
     </nav>
-    
-    <section id="seccion-1">
-        <h1 id="#title" class="titulo-productos">
-            Estos son nuestros productos
-        </h1>
+    <div class="menu-desplegable">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          Filtrar por:
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#">Precio alto a bajo</a></li>
+          <li><a class="dropdown-item" href="#">Talle</a></li>
+        </ul>
+    </div>
+    <section id="seccion-1" class="seccion-1">
+        <h2>Zapatillas para basket</h2>
         <div class="lista-compras">
             <div id="tarjetas-compra" class="tarjetas-compra">    
-          
-          
-            </div>
-            
+            </div>  
         </div>
     </section>
-
-    <section id="seccion-2">
+    
+    <section id="seccion-2" class="seccion-2">
         <div class="head-carrito">
             <h3>Lista de compras</h3>
-            <p class="precio-carrito">Precio total <span id="precioTotal">0</span></p>
+            <p class="precio-carrito">Precio total: $<span id="precioTotal">0</span> pesos</p>
         </div>
         
         <div class="carrito" id="carrito-lista">

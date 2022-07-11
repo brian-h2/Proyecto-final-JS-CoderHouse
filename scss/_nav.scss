@@ -3,7 +3,6 @@
     background-color: black;
     justify-content: space-between;
     width: 100%;
-    
     img {
         width: 100px;
         margin: 5px;
@@ -24,5 +23,19 @@
                 font-weight: 500;
             }
         }
+    }
+}
+
+.nav-productos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 35px;
+    a {
+        list-style-type: none;
+        text-decoration: none;
+        font-size: 40px;
+        color: #205375;
+        margin: auto;
     }
 }
