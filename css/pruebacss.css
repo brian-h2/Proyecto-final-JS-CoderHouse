@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth; }
+
 /*Variables*/
 /*Imports*/
 body {
@@ -295,12 +298,68 @@ body {
     width: 100%;
     height: 100%; }
 
-.tarjetas-compra {
+.lista-compras {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 50px;
-  justify-content: space-evenly; }
+  flex-direction: row;
+  align-items: center; }
+  .lista-compras .tarjetas-compra {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    flex-wrap: wrap;
+    padding-top: 150px;
+    gap: 70px;
+    max-width: 1700px;
+    margin: auto; }
+    .lista-compras .tarjetas-compra .card {
+      height: 100%;
+      width: 100%;
+      border-color: #37414D; }
+      .lista-compras .tarjetas-compra .card .card-body button {
+        width: 120px;
+        height: 30px;
+        font-size: 20px;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        background: transparent;
+        color: black;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: 700;
+        position: relative;
+        transition: all 0.5s;
+        z-index: 1; }
+      .lista-compras .tarjetas-compra .card .card-body button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 5px;
+        height: 100%;
+        background-color: #888888;
+        z-index: -1;
+        transition: all 0.5s; }
+      .lista-compras .tarjetas-compra .card .card-body button:hover::before {
+        width: 100%; }
+      .lista-compras .tarjetas-compra .card .card-body button:hover {
+        color: white; }
+      .lista-compras .tarjetas-compra .card .card-body button:active:before {
+        background: #b9b9b9; }
+  .lista-compras .imagen-productos {
+    width: 100%;
+    background-color: #F0F0F0;
+    height: 250px;
+    border-radius: 5px; }
+  .lista-compras .columna {
+    width: 270px;
+    height: 400px; }
+
+.head-carrito {
+  margin-right: 300px; }
+
+.carrito {
+  width: 1200px;
+  margin: auto; }
 
 footer {
   display: flex;

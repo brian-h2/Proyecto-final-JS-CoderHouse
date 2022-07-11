@@ -222,12 +222,85 @@
     }
 }
 
-
-.tarjetas-compra {
+.lista-compras{
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
-    margin-top: 50px;
-    justify-content: space-evenly;
-    
+    .tarjetas-compra {
+        display: flex;
+        align-items: center;
+        justify-content: right;
+        flex-wrap: wrap;
+        padding-top: 150px;
+        gap: 70px;
+        max-width: 1700px;
+        margin: auto;
+        .card{ 
+            height: 100%;
+            width: 100%;
+            border-color: #37414D;
+            .card-body{
+                    button {
+                        width: 120px;
+                        height: 30px;   
+                        font-size: 20px;
+                        cursor: pointer;
+                        border: none;
+                        outline: none;
+                        background: transparent;
+                        color: black;
+                        font-family: 'Times New Roman', Times, serif;
+                        font-weight: 700;
+                        position: relative;
+                        transition: all 0.5s;
+                        z-index: 1;
+                       }
+                       
+                       button::before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 5px;
+                        height: 100%;
+                        background-color: rgb(136, 136, 136);
+                        z-index: -1;
+                        transition: all 0.5s;
+                       }
+                       
+                       button:hover::before {
+                        width: 100%;
+                       }
+                       
+                       button:hover {
+                        color: white;
+                       }
+                       
+                       button:active:before {
+                        background: #b9b9b9;
+                       }
+                }
+            }
+        }
+        .imagen-productos {
+            width: 100%;
+            background-color: #F0F0F0;
+            height: 250px;
+            border-radius: 5px;
+        }
+        .columna{
+            width: 270px;
+            height: 400px;
+        }
+        
+    }
+
+
+.head-carrito{
+        margin-right: 300px;
+}
+
+.carrito {
+    width: 1200px;
+    margin: auto;
 }
