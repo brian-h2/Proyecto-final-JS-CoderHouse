@@ -223,90 +223,47 @@
 }
 
 
-.seccion-1{
+//Seccion 2 (ZAPATILLAS)
+.seccion-2-zapas{
     margin-top: 100px;
-    h2 {
-        color: #F66B0E;
-        font-size: 36px;
-        text-align: center;
-        font-family: 'Courier New', Courier, monospace;
-        font-weight: 700;
-    }
+    @include titles;
     .lista-compras{
         display: flex;
         flex-direction: row;
         align-items: center;
         .tarjetas-compra {
-            display: flex;
-            align-items: center;
-            justify-content: right;
-            flex-wrap: wrap;
-            padding-top: 50px;
-            gap: 70px;
-            max-width: 1700px;
-            margin: auto;
-            .card{ 
-                height: 100%;
-                width: 100%;
-                border-color: #37414D;
-                .card-body{
-                        button {
-                            width: 120px;
-                            height: 30px;   
-                            font-size: 20px;
-                            cursor: pointer;
-                            border: none;
-                            outline: none;
-                            background: transparent;
-                            color: black;
-                            font-family: 'Times New Roman', Times, serif;
-                            font-weight: 700;
-                            position: relative;
-                            transition: all 0.5s;
-                            z-index: 1;
-                        }
-                        
-                        button::before {
-                            content: "";
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            width: 5px;
-                            height: 100%;
-                            background-color: rgb(136, 136, 136);
-                            z-index: -1;
-                            transition: all 0.5s;
-                        }
-                        
-                        button:hover::before {
-                            width: 100%;
-                        }
-                        
-                        button:hover {
-                            color: white;
-                        }
-                        
-                        button:active:before {
-                            background: #b9b9b9;
-                        }
-                    }
-                }
-            }
-            .imagen-productos {
-                width: 100%;
-                background-color: #F0F0F0;
-                height: 250px;
-                border-radius: 5px;
-            }
+            @include cards;
             .columna{
                 width: 270px;
                 height: 400px;
             }
-            
         }
-
+    }
 }
-.seccion-2{
+
+//-----Seccion 3 (CAMISETAS)
+
+.seccion-3{
+    margin-top: 100px;
+    @include titles;
+    .lista-compras{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .tarjetas-camisetas{
+            @include cards;
+            .columnaCamisetas{
+                width: 270px;
+                height: 400px;
+            }
+        }
+    }
+}
+
+
+//-----Seccion 4 (CARRITO)
+
+.seccion-4{
     margin-top: 150px;
     .head-carrito{
         font-size: 30px;
@@ -331,8 +288,10 @@
                 .imagen-carrito {
                     border: 1px solid black
                 }
+
             }
             td{
+                padding-top: 40px;
                 button {
                     color: #090909;
                     padding: 0.7em 1.7em;
@@ -343,7 +302,7 @@
                     transition: all .3s;
                     box-shadow: 6px 6px 12px #c5c5c5,
                                 -6px -6px 12px #ffffff;
-                    margin-left: 20px;
+                    margin-left: 100px;
                    }
                    
                    button:hover {
@@ -358,3 +317,202 @@
         }
     }
 }
+
+.title{
+    padding-top: 100px;
+    h2{
+        color: #F66B0E;
+        text-align: center;
+    }
+}
+
+  
+.inicio-sesion{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #eee;
+    .title-footer{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 768px;
+            text-align: center;
+            margin: 25px;
+            h2 {
+                font-size: 65px;
+                font-family: $font-family;
+                font-weight: 200;
+                margin-bottom: 15px;
+            }
+            p {
+                font-size: 26px;
+                font-family: $font-family;
+                font-weight: 200;
+                color: #7a8a97;
+            }
+        }
+        .form{
+            display: flex;
+            flex-wrap: wrap;
+            justify-items: center;
+            align-items: center;
+            max-width: 769px;
+            margin: 0 auto;
+            margin-top: 60px;
+            width: 100%;
+            background: #fafafa;
+            border: 1px solid #ebebeb;
+            box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
+            }
+            .main_div {
+                    --color: #3992e6;
+                    margin: auto;
+                    position: relative;
+                margin-bottom: 10px;
+                    z-index: 1;
+               }
+               
+               .main_div::before {
+                content: '';
+                    position: absolute;
+                    width: 30px;
+                    height: 30px;
+                    background: transparent;
+                    top: -7px;
+                    left: -7px;
+                    z-index: -5;
+                    border-top: 3px solid var(--color);
+                    border-left: 3px solid var(--color);
+                    transition: 0.5s;
+               }
+               
+               .main_div::after {
+                content: '';
+                    position: absolute;
+                    width: 30px;
+                    height: 30px;
+                    background: transparent;
+                    bottom: -7px;
+                    right: -7px;
+                    z-index: -5;
+                    border-right: 3px solid var(--color);
+                    border-bottom: 3px solid var(--color);
+                    transition: 0.5s;
+               }
+               
+               .main_div:hover::before {
+                width: 100%;
+                height: 100%;
+               }
+               
+               .main_div:hover::after {
+                width: 100%;
+                height: 100%;
+               }
+               
+               .main_div button {
+                padding: 0.7em 2em;
+                font-size: 16px;
+                background: #222222;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+                font-family: inherit;
+                width: 180px;
+                height: 60px;
+                a{
+                    text-decoration: none;
+                    color: white;
+                }
+               }
+            .email{
+                max-width: 1000px;
+                width: 100%;
+                margin: 40px;
+                .titulos{
+                    display: flex;
+                    flex-direction: row;
+                    max-width: 800px;
+                    width: 100%;
+                    margin: 3px;
+                    input {
+                        border-color: #3992E6;
+                        border-width: 0px 0px 1px 0px;
+                        font-size: 100%;
+                        font-size: 20px;
+                        color: black;
+                        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;;
+                        width: 100%;
+                        max-width: 1000px;
+                        padding-left: 10px;
+                        padding-bottom: 10px;
+                        outline: 0px;
+                        
+                    }
+                }
+            }
+            .email-name {
+                display: flex;
+                max-width: 1000px;
+                width: 100%;
+                margin: 40px;
+                    .titulos{
+                        display: flex;
+                        flex-direction: row;
+                        max-width: 800px;
+                        width: 100%;
+                        margin: 3px;
+                        input {
+                            border-color: #3992E6;
+                            border-width: 0px 0px 1px 0px;
+                            font-size: 100%;
+                            font-size: 20px;
+                            color: black;
+                            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;;
+                            width: 100%;
+                            max-width: 1000px;
+                            padding-left: 10px;
+                            padding-bottom: 10px;
+                            transition: color 0.25s;
+                            outline: 0px;
+                            
+                        }
+                        
+                      }
+                        
+                    }
+                }
+            .email-password {
+                display: flex;
+                max-width: 1000px;
+                width: 100%;
+                margin: 40px;
+                    .titulos{
+                        display: flex;
+                        flex-direction: row;
+                        max-width: 800px;
+                        width: 100%;
+                        margin: 3px;
+                            input {
+                                border-color: #3992E6;
+                                border-width: 0px 0px 1px 0px;
+                                font-size: 100%;
+                                font-size: 20px;
+                                color: black;
+                                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;;
+                                width: 100%;
+                                max-width: 1000px;
+                                padding-left: 10px;
+                                padding-bottom: 10px;
+                                transition: color 0.25s;
+                                outline: 0px;
+                                
+                            }
+                            
+                          }
+                            
+                        }
+                        
+

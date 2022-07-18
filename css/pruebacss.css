@@ -1,3 +1,7 @@
+* {
+  padding: 0;
+  margin: 0; }
+
 html {
   scroll-behavior: smooth; }
 
@@ -7,6 +11,11 @@ body {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box; }
+
+.imagen-productos {
+  width: 100%;
+  height: 250px;
+  border-radius: 5px; }
 
 .nav-index {
   display: flex;
@@ -31,17 +40,37 @@ body {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         font-weight: 500; }
 
-.nav-productos {
+.menu-navegacion {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 35px; }
-  .nav-productos a {
+  justify-content: space-between;
+  border-right: 0px;
+  border-left: 0px; }
+  .menu-navegacion .nav-productos {
+    display: flex;
+    align-items: center;
+    gap: 100px; }
+    .menu-navegacion .nav-productos a {
+      list-style-type: none;
+      text-decoration: none;
+      font-size: 35px;
+      color: black;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      transition: 0.5s ease-in-out; }
+      .menu-navegacion .nav-productos a:hover {
+        color: #b57e18;
+        transition: 0.5s ease-in-out;
+        font-size: 38px; }
+  .menu-navegacion a {
     list-style-type: none;
     text-decoration: none;
-    font-size: 40px;
-    color: #205375;
-    margin: auto; }
+    font-size: 35px;
+    color: black;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    transition: 0.5s ease-in-out; }
+    .menu-navegacion a:hover {
+      color: #b57e18;
+      transition: 0.5s ease-in-out;
+      font-size: 38px; }
 
 .slide .carousel-inner {
   width: 100%;
@@ -53,18 +82,14 @@ body {
       width: 100%;
       object-fit: cover; }
 
-.titulo-productos {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-  max-width: 600px;
-  width: 100%;
-  margin-top: 30px;
-  border-bottom: 1px solid black;
-  border-width: 1px;
-  font-size: 45px;
-  color: #112B3C; }
+.title {
+  text-align: center;
+  margin-bottom: 50px; }
+  .title h1 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 700;
+    font-size: 50px;
+    margin-top: 20px; }
 
 /*Tarjetas*/
 .main-colecciones {
@@ -310,19 +335,19 @@ body {
     width: 100%;
     height: 100%; }
 
-.seccion-1 {
+.seccion-2-zapas {
   margin-top: 100px; }
-  .seccion-1 h2 {
-    color: #F66B0E;
+  .seccion-2-zapas h2 {
+    color: #000000;
     font-size: 36px;
     text-align: center;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 700; }
-  .seccion-1 .lista-compras {
+  .seccion-2-zapas .lista-compras {
     display: flex;
     flex-direction: row;
     align-items: center; }
-    .seccion-1 .lista-compras .tarjetas-compra {
+    .seccion-2-zapas .lista-compras .tarjetas-compra {
       display: flex;
       align-items: center;
       justify-content: right;
@@ -331,11 +356,11 @@ body {
       gap: 70px;
       max-width: 1700px;
       margin: auto; }
-      .seccion-1 .lista-compras .tarjetas-compra .card {
+      .seccion-2-zapas .lista-compras .tarjetas-compra .card {
         height: 100%;
         width: 100%;
         border-color: #37414D; }
-        .seccion-1 .lista-compras .tarjetas-compra .card .card-body button {
+        .seccion-2-zapas .lista-compras .tarjetas-compra .card .card-body button {
           width: 120px;
           height: 30px;
           font-size: 20px;
@@ -349,7 +374,7 @@ body {
           position: relative;
           transition: all 0.5s;
           z-index: 1; }
-        .seccion-1 .lista-compras .tarjetas-compra .card .card-body button::before {
+        .seccion-2-zapas .lista-compras .tarjetas-compra .card .card-body button::before {
           content: "";
           position: absolute;
           top: 0;
@@ -359,53 +384,269 @@ body {
           background-color: #888888;
           z-index: -1;
           transition: all 0.5s; }
-        .seccion-1 .lista-compras .tarjetas-compra .card .card-body button:hover::before {
+        .seccion-2-zapas .lista-compras .tarjetas-compra .card .card-body button:hover::before {
           width: 100%; }
-        .seccion-1 .lista-compras .tarjetas-compra .card .card-body button:hover {
+        .seccion-2-zapas .lista-compras .tarjetas-compra .card .card-body button:hover {
           color: white; }
-        .seccion-1 .lista-compras .tarjetas-compra .card .card-body button:active:before {
+        .seccion-2-zapas .lista-compras .tarjetas-compra .card .card-body button:active:before {
           background: #b9b9b9; }
-    .seccion-1 .lista-compras .imagen-productos {
-      width: 100%;
-      background-color: #F0F0F0;
-      height: 250px;
-      border-radius: 5px; }
-    .seccion-1 .lista-compras .columna {
-      width: 270px;
-      height: 400px; }
+      .seccion-2-zapas .lista-compras .tarjetas-compra .columna {
+        width: 270px;
+        height: 400px; }
 
-.seccion-2 {
+.seccion-3 {
+  margin-top: 100px; }
+  .seccion-3 h2 {
+    color: #000000;
+    font-size: 36px;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 700; }
+  .seccion-3 .lista-compras {
+    display: flex;
+    flex-direction: row;
+    align-items: center; }
+    .seccion-3 .lista-compras .tarjetas-camisetas {
+      display: flex;
+      align-items: center;
+      justify-content: right;
+      flex-wrap: wrap;
+      padding-top: 50px;
+      gap: 70px;
+      max-width: 1700px;
+      margin: auto; }
+      .seccion-3 .lista-compras .tarjetas-camisetas .card {
+        height: 100%;
+        width: 100%;
+        border-color: #37414D; }
+        .seccion-3 .lista-compras .tarjetas-camisetas .card .card-body button {
+          width: 120px;
+          height: 30px;
+          font-size: 20px;
+          cursor: pointer;
+          border: none;
+          outline: none;
+          background: transparent;
+          color: black;
+          font-family: 'Times New Roman', Times, serif;
+          font-weight: 700;
+          position: relative;
+          transition: all 0.5s;
+          z-index: 1; }
+        .seccion-3 .lista-compras .tarjetas-camisetas .card .card-body button::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 5px;
+          height: 100%;
+          background-color: #888888;
+          z-index: -1;
+          transition: all 0.5s; }
+        .seccion-3 .lista-compras .tarjetas-camisetas .card .card-body button:hover::before {
+          width: 100%; }
+        .seccion-3 .lista-compras .tarjetas-camisetas .card .card-body button:hover {
+          color: white; }
+        .seccion-3 .lista-compras .tarjetas-camisetas .card .card-body button:active:before {
+          background: #b9b9b9; }
+      .seccion-3 .lista-compras .tarjetas-camisetas .columnaCamisetas {
+        width: 270px;
+        height: 400px; }
+
+.seccion-4 {
   margin-top: 150px; }
-  .seccion-2 .head-carrito {
+  .seccion-4 .head-carrito {
     font-size: 30px;
     text-align: center; }
-    .seccion-2 .head-carrito h3 {
+    .seccion-4 .head-carrito h3 {
       font-size: 39px; }
-    .seccion-2 .head-carrito .precio-carrito {
+    .seccion-4 .head-carrito .precio-carrito {
       font-size: 24px; }
-  .seccion-2 .carrito {
+  .seccion-4 .carrito {
     width: 1200px;
     margin: auto; }
 
 .table tbody tr th .imagen-carrito {
   border: 1px solid black; }
 
-.table tbody tr td button {
-  color: #090909;
-  padding: 0.7em 1.7em;
-  font-size: 11px;
-  border-radius: 0.5em;
-  background: #e8e8e8;
-  border: 1px solid #e8e8e8;
-  transition: all .3s;
-  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
-  margin-left: 20px; }
+.table tbody tr td {
+  padding-top: 40px; }
+  .table tbody tr td button {
+    color: #090909;
+    padding: 0.7em 1.7em;
+    font-size: 11px;
+    border-radius: 0.5em;
+    background: #e8e8e8;
+    border: 1px solid #e8e8e8;
+    transition: all .3s;
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    margin-left: 100px; }
+  .table tbody tr td button:hover {
+    border: 1px solid white; }
+  .table tbody tr td button:active {
+    box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff; }
 
-.table tbody tr td button:hover {
-  border: 1px solid white; }
+.title {
+  padding-top: 100px; }
+  .title h2 {
+    color: #F66B0E;
+    text-align: center; }
 
-.table tbody tr td button:active {
-  box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff; }
+.inicio-sesion {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #eee; }
+  .inicio-sesion .title-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 768px;
+    text-align: center;
+    margin: 25px; }
+    .inicio-sesion .title-footer h2 {
+      font-size: 65px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      font-weight: 200;
+      margin-bottom: 15px; }
+    .inicio-sesion .title-footer p {
+      font-size: 26px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      font-weight: 200;
+      color: #7a8a97; }
+  .inicio-sesion .form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+    align-items: center;
+    max-width: 769px;
+    margin: 0 auto;
+    margin-top: 60px;
+    width: 100%;
+    background: #fafafa;
+    border: 1px solid #ebebeb;
+    box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px; }
+  .inicio-sesion .main_div {
+    --color: #3992e6;
+    margin: auto;
+    position: relative;
+    margin-bottom: 10px;
+    z-index: 1; }
+  .inicio-sesion .main_div::before {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    top: -7px;
+    left: -7px;
+    z-index: -5;
+    border-top: 3px solid var(--color);
+    border-left: 3px solid var(--color);
+    transition: 0.5s; }
+  .inicio-sesion .main_div::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    bottom: -7px;
+    right: -7px;
+    z-index: -5;
+    border-right: 3px solid var(--color);
+    border-bottom: 3px solid var(--color);
+    transition: 0.5s; }
+  .inicio-sesion .main_div:hover::before {
+    width: 100%;
+    height: 100%; }
+  .inicio-sesion .main_div:hover::after {
+    width: 100%;
+    height: 100%; }
+  .inicio-sesion .main_div button {
+    padding: 0.7em 2em;
+    font-size: 16px;
+    background: #222222;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    width: 180px;
+    height: 60px; }
+    .inicio-sesion .main_div button a {
+      text-decoration: none;
+      color: white; }
+  .inicio-sesion .email {
+    max-width: 1000px;
+    width: 100%;
+    margin: 40px; }
+    .inicio-sesion .email .titulos {
+      display: flex;
+      flex-direction: row;
+      max-width: 800px;
+      width: 100%;
+      margin: 3px; }
+      .inicio-sesion .email .titulos input {
+        border-color: #3992E6;
+        border-width: 0px 0px 1px 0px;
+        font-size: 100%;
+        font-size: 20px;
+        color: black;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        width: 100%;
+        max-width: 1000px;
+        padding-left: 10px;
+        padding-bottom: 10px;
+        outline: 0px; }
+  .inicio-sesion .email-name {
+    display: flex;
+    max-width: 1000px;
+    width: 100%;
+    margin: 40px; }
+    .inicio-sesion .email-name .titulos {
+      display: flex;
+      flex-direction: row;
+      max-width: 800px;
+      width: 100%;
+      margin: 3px; }
+      .inicio-sesion .email-name .titulos input {
+        border-color: #3992E6;
+        border-width: 0px 0px 1px 0px;
+        font-size: 100%;
+        font-size: 20px;
+        color: black;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        width: 100%;
+        max-width: 1000px;
+        padding-left: 10px;
+        padding-bottom: 10px;
+        transition: color 0.25s;
+        outline: 0px; }
+
+.email-password {
+  display: flex;
+  max-width: 1000px;
+  width: 100%;
+  margin: 40px; }
+  .email-password .titulos {
+    display: flex;
+    flex-direction: row;
+    max-width: 800px;
+    width: 100%;
+    margin: 3px; }
+    .email-password .titulos input {
+      border-color: #3992E6;
+      border-width: 0px 0px 1px 0px;
+      font-size: 100%;
+      font-size: 20px;
+      color: black;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      width: 100%;
+      max-width: 1000px;
+      padding-left: 10px;
+      padding-bottom: 10px;
+      transition: color 0.25s;
+      outline: 0px; }
 
 footer {
   display: flex;

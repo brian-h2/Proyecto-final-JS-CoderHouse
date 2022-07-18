@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    
+    <link rel="stylesheet" href="../css/pruebacss.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <title>Productos</title>
+</head>
+<body class="inicio-sesion">
+    
+    <!--Formulario de inicio de sesion con localStorage-->
+    <div class="title-footer">
+        <h2>Porfavor ingresa con tu usuario y contraseña</h2>
+        <p>Pedinos una prenda, sacate todas las dudas, envianos tus recomendaciones, contanos que pensás!</p>   
+    </div>
+    <form class='form' id="Formulario">
+        <div class="email-name">
+            <p class="titulos">
+                <label class="label requerido" for="name"></label>
+                <input class="text-input" id="name_form" name="name" required type="text" placeholder="Nombre">
+            </p>
+        </div>
+        <div class="email-password">
+            <p class="titulos">
+                <label class="label requerido" for="password" id="name-label"></label>
+                <input type="password" name="password" id="password" placeholder="Contraseña"><span class="barra"></span>
+            </P>
+        </div>
+        <div class="email">
+            <p class="titulos">
+                <label class="label" for="email"></label>
+                <input class="text-input" id="email" name="email" required type="email" placeholder="Email">
+            </p>
+        </div>
+        <div class="main_div">
+            <button id="button-sesion"><a href="index.html">Iniciar sesion</a></button>
+        </div>
+        <div class="main_div">
+            <button id="button-sesion-vaciar">Vaciar datos</button>
+        </div>
+    </form>
+</body>
+
+<!--Scripts para darle funcionalidad a la pagina-->
+<script src="mains.js"></script>
+<script src="js/sesion.js"></script>
