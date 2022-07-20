@@ -36,18 +36,15 @@ function storage() {
     })
 
 }
-
 storage()
 
-//Creamos una funcion para almacenar eventos dependiendo el caso que sea
+/*Creamos una funcion para almacenar eventos dependiendo el caso que sea (En el primercaso se utiliza 
+el operador lógico AND (&&) en el que retorna tal accion si la condicion es verdadera en este caso si 
+se presiona la tecla Enter */
 
 function tecla() {
     document.addEventListener("keyup", function(event) {
-        if (event.code === 'Enter') {
-            redireccionar()
-        } else{
-            click()
-        }
+        event.code === 'Enter' && redireccionar()
     });
 }
 

@@ -11,6 +11,7 @@ const precioFinal = document.getElementById("precioTotal")
 
 let carrito = []
 
+
 //Creamos una iteracion para que se haga una card por cada objeto que se agregue al array lista 
 
 for(const producto of camisetas) {    
@@ -55,18 +56,18 @@ for(const producto of lista) {
                                 <button id="agregar${producto.id}" class="button-agregar"> Comprar</button>
                         </div> 
                 </div>
-        `
+                `
         contenedorProductos.appendChild(columna)
-
+        
         //Boton para agregar productos al carrito en base al ID
-        
+                
         const boton = document.getElementById(`agregar${producto.id}`)
-        
+                
         boton.addEventListener('click', () => {
                 agregarCarrito(producto.id)
                 alert(`Su producto fue agregado al carrito`)
         })
-
+        
 }
 
 const agregarCarrito1 = (prodId) => {
@@ -84,14 +85,12 @@ const agregarCarrito = (prodId) => {
 
 //Function para eliminar tal elemento con un metodo splice en base a lo que nos pase el indexOf
 
-function eliminarProducto(prodId) {
-        const trash = carrito.findIndex((prod) => prod.id === prodId)
+function eliminarProducto(productoId) {
+        const trash = carrito.findIndex((prod) => prod.id === productoId)
         const inicio = carrito.indexOf(trash)
         carrito.splice(inicio, 1)
         mostrarProducto()
 }
-
-
 
 //Este permite mostrar al producto cuando se va agregando al carrito y su precio total
 
@@ -131,46 +130,19 @@ const mostrarProducto = () => {
 
 
 
-/*const buton = document.getElementById('button-filtro-precio')
-function botonPrecio() {
-        buton.addEventListener("click", () => {
-                for(const producto of lista) {    
-                        let columna = document.createElement(`div`)
-                        columna.classList.add(`columna`)
-                        columna.id = `columna-${producto.id}`
-                        columna.innerHTML = `
-                                <div class="card" style="max-width: 400px; width: 100%;">
-                                        <img src=${producto.img} alt="" class="imagen-productos">
-                                        <div class="card-body">
-                                                <p class="card-text">Nombre: <b>${producto.nombre}</b></p>
-                                                <p class="card-text">Precio: <b>$${producto.precio}</b></p>
-                                                <button id="agregar${producto.id}" class="button-agregar"> Comprar</button>
-                                        </div> 
-                                </div>
-                        `
-                        contenedorProductos.appendChild(columna)
-                
-                        //Boton para agregar productos al carrito en base al ID
-                        
-                        const boton = document.getElementById(`agregar${producto.id}`)
-                        
-                        boton.addEventListener('click', () => {
-                                agregarCarrito(producto.id)
-                                alert(`Su producto fue agregado al carrito`)
-                        })
-                
-                }
-        })
-}
+/*
+const buton = document.getElementById('button-filtro-precio')
+
+buton.addEventListener('click', () => {
+        console.log(listaFiltrado)
+})
+
+const listaFiltrado = lista.filter(producto => {
+        if(producto.precio < 32000) {
+                return producto.precio
+        }
+})
+*/
 
 
-function filtrarProducto() {
-        let filtradoPrecio = lista.filter((producto) =>{
-                if(producto.precio >= 52000) {
-                        botonPrecio()
-                }else{
-
-                }}
-)}*/
- 
 

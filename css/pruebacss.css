@@ -60,6 +60,8 @@ body {
         color: #b57e18;
         transition: 0.5s ease-in-out;
         font-size: 38px; }
+  .menu-navegacion i {
+    width: 100px; }
   .menu-navegacion a {
     list-style-type: none;
     text-decoration: none;
