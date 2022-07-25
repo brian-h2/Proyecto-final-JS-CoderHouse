@@ -1,4 +1,6 @@
 
+
+
 //Constantes globales 
 
 const contenedorProductos = document.getElementById("tarjetas-compra")   
@@ -36,7 +38,11 @@ for(const producto of camisetas) {
         
         boton.addEventListener('click', () => {
                 agregarCarrito1(producto.id)
-                alert(`Su producto fue agregado al carrito`)
+                Swal.fire(
+                        'Se agrego correctamente al carrito',
+                        'Puede seguir comprando',
+                        'success'
+                )
         })
 
 }
@@ -65,10 +71,18 @@ for(const producto of lista) {
                 
         boton.addEventListener('click', () => {
                 agregarCarrito(producto.id)
-                alert(`Su producto fue agregado al carrito`)
-        })
-        
+                //Coloco este alert para informarle al usuario que agrego correctamente el producto al carrito
+                Swal.fire(
+                        'Se agrego correctamente al carrito',
+                        'Puede seguir comprando',
+                        'success'
+                        )
+                }
+                )
+                
 }
+     
+
 
 const agregarCarrito1 = (prodId) => {
         const elemento = camisetas.find((prod) => prod.id === prodId)
@@ -114,7 +128,7 @@ const mostrarProducto = () => {
                         <tr>
                                 <th><img src=${producto.img} alt="" style="width: 100px; height: 100px; background-color: #F0F0F0" class="imagen-carrito"></th>
                                 <td>${producto.nombre}</td>
-                                <td>$${producto.precio} <button onclick="eliminarProducto(${producto.id})" class="custom-btn btn">Eliminar Producto</button></td>
+                                <td>$${producto.precio} <button id="alert" onclick="eliminarProducto(${producto.id})" class="custom-btn btn">Eliminar Producto</button></td>
                         </tr>
                 </tbody>
         </table>
@@ -128,6 +142,10 @@ const mostrarProducto = () => {
         precioFinal.innerText = carrito.reduce((acc, prod) => acc + prod.precio, 0)
 }
 
+//Esta seccion es para pagar los productos
+
+const carro = document.getElementById("carrito-pagos") 
+const contador = document.getElementById("contador-lista")
 
 
 /*
@@ -143,6 +161,4 @@ const listaFiltrado = lista.filter(producto => {
         }
 })
 */
-
-
 

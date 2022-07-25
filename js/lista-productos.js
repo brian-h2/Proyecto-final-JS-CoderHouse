@@ -6,7 +6,7 @@ const lista = [
     {id: 5, nombre: "Charged Spawn 3", img: "../img/productos-venta/under1.png", precio: 32500, talle: "Talle 12"},
     {id: 6, nombre: "Charged Essential", img: "../img/productos-venta/under2.png", precio: 42330, talle: "Talle 12"},
     {id: 7, nombre: "Under Armour Jet", precio: 45000, img: "../img/productos-venta/under3.jpg",talle: "Talle 12"},  
-    {id: 8, nombre: "Nike KD 13 Black/grey", precio: 41900, img: "../img/productos-venta/nike2.jpg",talle: "Talle 10"},
+    {id: 8, nombre: "Nike KD 13", precio: 41900, img: "../img/productos-venta/nike2.jpg",talle: "Talle 10"},
     {id: 9, nombre: "Air Jordan XXXVI SE", precio: 52900, img: "../img/productos-venta/nike4.jpg",talle: "Talle 14"},
     {id: 10, nombre: "Nike Renew Elevate 3", precio: 38100, img: "../img/productos-venta/nike5.jpg",talle: "Talle 11"},
     {id: 11, nombre: "Kyrie Infinity By You", precio: 36000, img: "../img/productos-venta/nike6.jpg",talle: "Talle 13"},
