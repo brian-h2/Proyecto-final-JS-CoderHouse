@@ -11,27 +11,25 @@
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="../css/pruebacss.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
     <title>Productos</title>
 </head>
-<body>
+<body style="background-color: #E1E5EA">
     
-  <div class="progress-loader" id="carga">
-    <div class="progress"></div>
-  </div>
-
-    <!--MENU DE NAVEGACION-->
-    <div class="menu-navegacion">
-        <a href="../index.html">Home<i class="fa-solid fa-house"></i></a>
-            <nav class="nav-productos">
-                <a href="#seccion-2">Calzado</a>
-                <a href="#seccion-3">Camisetas</a>
-                <a href="#seccion-4"><i class="fa-solid fa-cart-shopping"></i></a>
-            </nav>
-    </div>
-
-    <!--CARRUSEL DE IMAGENES PARA HEADER-->
-    <header style="margin-top: 70px">
+    <!--Menu de navegacion-->
+    <nav class="nav-index">
+      <img src="../img/nav/logo.png" alt="logode basket">
+      <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="#seccion-2">Calzado</a></li>
+          <li><a href="#seccion-3">Camisetas</a></li>
+          <li><a href="#seccion-4"><i class="fa-solid fa-cart-shopping fa-"></i></a></li>
+      </ul>
+    </nav>
+    
+    <!--Carrusel de imagenes para header-->
+    <header>
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -60,97 +58,116 @@
           </div>
     </header>
 
-    <!--SECCION DE ZAPATILAS-->
+
     <main class="contenido">
-      <section id="seccion-2" class="seccion-2-zapas" data-aos="zoom-in" data-aos-duration="1500">
+      <!--Seccion de zapatillas-->
+      <section id="seccion-2" class="seccion-2-zapas" >
           <h2>Zapatillas para basket</h2>
-          <div class="lista-compras">
+          <div class="lista-compras" data-aos="zoom-in" data-aos-duration="1500">
               <div id="tarjetas-compra" class="tarjetas-compra">    
               </div>
       
           </div>
       </section>
 
-      <!--SECCION DE CAMISETAS-->
-      <section id="seccion-3" class="seccion-3" data-aos="zoom-in" data-aos-duration="1500">
+      <!--Seccion de camisetas-->
+      <section id="seccion-3" class="seccion-3">
           <h2>Camisetas</h2>
-          <div class="lista-compras">
+          <div class="lista-compras" data-aos="zoom-in" data-aos-duration="1500">
               <div id="tarjetas-camisetas" class="tarjetas-camisetas">
                       
               </div>  
           </div>
       </section>
 
-      <!--SECCION CARRITO-->
-  
-      <section id="seccion-4" class="seccion-4" data-aos="zoom-in" data-aos-duration="1500">
-        <h3>Lista de compras</h3>
-        <div style="background-color: #E1E5EA;">
-          <div class="head-carrito" style="margin-bottom: 50px">
-              <p class="precio-carrito">Precio total: $<span id="precioTotal">0</span> pesos</p>
-              <div class="botones">
-                <button class="cta" id="button-carrito">
-                  <span class="hover-underline-animation" id="button-carrito"> Vaciar carrito </span>
-                    <path id="Path_10" data-name="Path 10" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)"></path>
-                </button>
-                <button class="cta">
-                  <span class="hover-underline-animation" id="pago"> Realizar pago</span>
-                  <svg id="arrow-horizontal" xmlns="http://www.w3.org/2000/svg" width="30" height="10" viewBox="0 0 46 16">
-                    <path id="Path_10" data-name="Path 10" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)"></path>
-                  </svg>
-                </button>
-              </div>
-          </div>
-          
-          <div class="carrito" id="carrito-lista" data-aos="zoom-in" data-aos-duration="1500">
-          </div>
-        </div>
+      <!--Seccion carrito-->
+      <section id="seccion-4" class="seccion-4">
+        <div class="contenedor-compra">
 
-      </section>
-    </main>
-    <!--
-    <aside>
-        <h1>Seccion de pagos</h1>
-        <h2></h2>
-        <div class="carrito" id="carrito-pagos">
-          <div class="contador">
-            <h2>Cantidad de productos adquiridos</h2><button><i class="fa-solid fa-cart-shopping"><span id="contador-lista">0</span></i></button>
-              <form action="" method="post" class="formOne">
-                  <strong> Sexo <br/> </strong>
-                  <div class ="names">
-                          <input type = "radio" name = "sex"> Hombre <br/>
-                          <input type = "radio" name = "sex"> Mujer <br/>
-                  </div> 
-                  <div class ="r">
-                          Apellido y Nombre<input type = "text"><br/>
-                          Email:<input type="text" ><br/>
-                  </div>
-                           <h3>Elija los metodos de pago</h3>
-                  <div class="c">
-                  <select>
-                     <option selected="selected">Pagos</option>
-                            <option> Efectivo </option>
-                            <option> Tarjeta </option>
-                            <option> Transferencia </option>
-                  </select>
-                  </div>
-              </form>
+          <div style="background-color: #E1E5EA;">
+            <h3>Lista de compras</h3>
+            <div class="head-carrito" style="margin-bottom: 50px" data-aos="zoom-in" data-aos-duration="1500">
+                <p class="precio-carrito">Precio total: $<span id="precioTotal">0</span> pesos</p>
+                <div class="botones">
+                  <button class="cta" id="button-carrito">
+                    <span class="hover-underline-animation" id="button-carrito"> Vaciar carrito </span>
+                      <path id="Path_10" data-name="Path 10" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)"></path>
+                  </button>
+                  <button class="cta">
+                    <span class="hover-underline-animation" id="pago"><a href="#seccion-form">Realizar pago</a></span>
+                    <svg id="arrow-horizontal" xmlns="http://www.w3.org/2000/svg" width="30" height="10" viewBox="0 0 46 16">
+                      <path id="Path_10" data-name="Path 10" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)"></path>
+                    </svg>
+                  </button>
+                </div>
+            </div>
+            
+            <!--Lista de carrito-->
+            <div class="carrito" id="carrito-lista" data-aos="zoom-in" data-aos-duration="1500">
+            </div>
+          </div>
+          <div class="container">
+            <h2>LLene este formulario para realizar el pago</h2>
+            <form class="row g-3">
+              <div class="col-md-6">
+                <label for="name" class="form-label">Nombre</label>
+                <input type="text" id="name" class="form-control">
+              </div>
+              <div class="col-md-6">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" class="form-control">
+              </div>
+              <div class="col-md-6">
+                <label for="pago" class="form-label">Introduzca la cantidad a pagar</label>
+                <input type="number" id="pago" class="form-control">
+              </div>
+              <div class="col-md-6">
+                <label for="pago" class="form-label">Numero de telefono</label>
+                <input type="number" id="pago" class="form-control">
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="gridCheck">
+                  <label class="form-check-label" for="gridCheck">
+                    No soy un robot
+                  </label>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary" id="boton-pago">Pagar</button>
+              </div>
+            </form>
           </div>
         </div>
-    </aside>
-    -->
-    <footer>
+      </section> 
+    </main>
+    
+    <footer style="background-color: black;">
+      <div class="container">
+        <div class="row g-8">
+          <div class="col-md-4">
+            <h2>Redes</h2>
+            <ul>
+              <li>Facebook</li>
+              <li>Twitter</li>
+              <li>Instagram</li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h2>Ubicacion</h2>
+            <div class="contenedor">
+              <!--<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26281.72924928237!2d-58.43852501910409!3d-34.57339676318618!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb59c771eb933%3A0x6b3113b596d78c69!2sPalermo%2C%20CABA!5e0!3m2!1ses!2sar!4v1658970637468!5m2!1ses!2sar" width="250" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>-->
+            </div>
+          </div>
+          <div class="col-md-4">
+            <h2>Comunicacion</h2>
+            <p>Telefono: +54 9 3525-458195</p> 
+          </div>           
+        </div>
+      </div>
       
     </footer>
-
-    <Script>
-      window.onload = function() {
-        let contenedor = document.getElementById('carga');
-        contenedor.style.visibility = 'hidden';
-        contenedor.style.opacity = 0;
-      }
-
-    </script>
+ 
     <!--Script de bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -159,14 +176,18 @@
     <script src="https://kit.fontawesome.com/b2cb85d10d.js" crossorigin="anonymous"></script>
 
     <!--Sweet Alert-->
-
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!--Toastify-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
     <!--Script de JS-->
     <script src="../js/carritoLS.js"></script>
     <script src="../js/lista-productos.js"></script>
     <script src="../main.js"></script>
+    <script src="../js/JSON/zapatillas.json"></script>
 
+    <!--Animaciones-->
     <script>
         AOS.init();
     </script>

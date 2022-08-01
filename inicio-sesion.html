@@ -13,41 +13,53 @@
     
     <title>Productos</title>
 </head>
-<body class="inicio-sesion">
+<body class="inicio-sesion" data-aos="fade-down" data-aos-duration="1500">
     
-    <!--Formulario de inicio de sesion con localStorage-->
-    <div class="title-footer">
-        <h2>Porfavor ingresa con tu usuario y contraseña</h2>
-        <p>Pedinos una prenda, sacate todas las dudas, envianos tus recomendaciones, contanos que pensás!</p>   
-    </div>
-    <form class='form' id="Formulario">
-        <div class="email-name">
-            <p class="titulos">
-                <label class="label requerido" for="name"></label>
-                <input class="text-input" id="name_form" name="name" required type="text" placeholder="Nombre">
-            </p>
+        <!--Formulario de inicio de sesion con localStorage-->
+        <div class="title-footer">
+            <h2>Porfavor ingresa con tu usuario y contraseña</h2>
+            <p>Pedinos una prenda, sacate todas las dudas, envianos tus recomendaciones, contanos que pensás!</p>   
         </div>
-        <div class="email-password">
-            <p class="titulos">
-                <label class="label requerido" for="password" id="name-label"></label>
-                <input type="password" name="password" id="password" placeholder="Contraseña"><span class="barra"></span>
-            </P>
-        </div>
-        <div class="email">
-            <p class="titulos">
-                <label class="label" for="email"></label>
-                <input class="text-input" id="email" name="email" required type="email" placeholder="Email">
-            </p>
-        </div>
-        <div class="main_div">
-            <button id="button-sesion">Iniciar Sesion</button>
-        </div>
-        <div class="main_div">
-            <button id="button-sesion-vaciar">Vaciar datos</button>
-        </div>
-    </form>
+        <form class='form' id="Formulario">
+            <div class="email-name">
+                <p class="titulos">
+                    <label class="label requerido" for="name"></label>
+                    <input class="text-input" id="name" name="name" required type="text" placeholder="Nombre">
+                </p>
+            </div>
+            <div class="email-password">
+                <p class="titulos">
+                    <label class="label requerido" for="password" id="name-label"></label>
+                    <input type="password" name="password" id="password" placeholder="Contraseña"><span class="barra"></span>
+                </P>
+            </div>
+            <div class="email">
+                <p class="titulos">
+                    <label class="label" for="email"></label>
+                    <input class="text-input" id="email" name="email" required type="email" placeholder="Email">
+                </p>
+            </div>
+            <div class="main_div">
+                <button id="button-sesion">Iniciar Sesion</button>
+            </div>
+            <div class="main_div">
+                <button id="button-sesion-vaciar">Vaciar datos</button>
+            </div>
+        </form>
+    
+    <!--Script de EMAILJS (API)-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+            (function() {
+                emailjs.init('kM1TKTIEXKlSizJv5');
+            })();
+    </script>
+    <!--Toastify-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <!--Scripts propios-->
+    <script src="mains.js"></script>
+    <script src="js/sesion.js"></script>
+
 </body>
 
-<!--Scripts para darle funcionalidad a la pagina-->
-<script src="mains.js"></script>
-<script src="js/sesion.js"></script>

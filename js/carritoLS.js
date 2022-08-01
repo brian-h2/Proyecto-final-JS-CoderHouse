@@ -10,11 +10,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 botonCarrito = document.getElementById("button-carrito")
 
-//Este evento permite borrar el localStorage
-
 botonCarrito.addEventListener("click", () => {
-    //Coloco un alert para preguntar si realmente desea variar el carrito dandole dos opciones
-    Swal.fire({
+    //Coloco un toastify y un sweet alert asi dependiendo de la condicion del carrito es como actuen las alertas
+    if(carrito.length == 0) {
+        Toastify({
+            text: "🚨Tienes el carrito vacio!🚨",
+            className: "info",
+            duration: 2000,
+            position: "center",
+            gravity: "bottom",
+            style: {
+              background: "#008000",
+            }
+          }).showToast();
+    } else {
+        Swal.fire({
         title: 'Estas seguro de vaciar el carrito?',
         text: "Los cambios no son reversibles",
         icon: 'ojo',
@@ -23,8 +33,10 @@ botonCarrito.addEventListener("click", () => {
         cancelButtonColor: '#d33',
         confirmButtonText: 'Si, vaciar!'
       }).then((result) => {
+        //Este evento permite vaciar el LocalStorage
         result.isConfirmed === localStorage.clear() & window.location.reload() 
       })
+    }
 })
 
 

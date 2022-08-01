@@ -7,13 +7,37 @@ const vaciarDatos = document.getElementById("button-sesion-vaciar")
 const almacen = localStorage
 
 
-//Creamos un evento para evitar que se recargue la pagina evitando asi que se eliminen los datos ingresados al formulario
-
-form.addEventListener("submit", function(evento){
+/*form.addEventListener("submit", function(evento){
     evento.preventDefault()
+    
+   const serviceID = 'default_service';
+   const templateID = 'template_sr244dl';
+   const correo = email.value;
+
+   emailjs.sendForm(serviceID, templateID, correo, this)
+    .then(() => {
+      sesion.value = 'Send Email';
+      Toastify({
+        text: "Se envio correctamente el correo",
+        positon: "center",
+        gravity: "bottom",
+        className: "info",
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+        }
+      }).showToast();
+    }, (err) => {
+      sesion.value = 'Send Email';
+      alert(JSON.stringify(err));
+    });
     tecla()
     click()
-})
+})*/
+
+// Key publica de cuenta: kM1TKTIEXKlSizJv5
+// Key privada de cuenta: O_imi_ETnrnKweb6VxmmQ
+// Template ID: contact_form
+// 
 
 //Creamos una funcion que almacene los datos que ingrese en los campos de texto el usuario
 

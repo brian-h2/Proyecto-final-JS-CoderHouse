@@ -1,0 +1,18 @@
+[
+    {"id": 1, "nombre": "Adidas Hoops 3.0", "precio": 15600, "img": "../img/productos-venta/adidas1.jpg"},
+    {"id": 2, "nombre": "Adidas Cross Em Up", "precio": 12000, "img": "../img/productos-venta/adidas2.png"},
+    {"id": 3, "nombre": "Nike Precision 5 Bred", "precio": 30550, "img": "../img/productos-venta/nike3.png"},
+    {"id": 4, "nombre": "Adidas Four", "precio": 43300, "img": "../img/productos-venta/adidas4.png"},
+    {"id": 5, "nombre": "Charged Spawn 3", "precio": 32500,"img": "../img/productos-venta/under1.png"},
+    {"id": 6, "nombre": "Charged Essential", "precio": 42330,"img": "../img/productos-venta/under2.png"},
+    {"id": 7, "nombre": "Under Armour Jet", "precio": 45000, "img": "../img/productos-venta/under3.jpg"},  
+    {"id": 8, "nombre": "Nike KD 13", "precio": 41900, "img": "../img/productos-venta/nike2.jpg"},
+    {"id": 9, "nombre": "Air Jordan XXXVI SE", "precio": 52900, "img": "../img/productos-venta/nike4.jpg"},
+    {"id": 10, "nombre": "Nike Renew Elevate 3", "precio": 38100, "img": "../img/productos-venta/nike5.jpg"},
+    {"id": 11, "nombre": "Kyrie Infinity By You", "precio": 36000, "img": "../img/productos-venta/nike6.jpg"},
+    {"id": 12, "nombre": "Air Jordan XXXVI", "precio": 32000, "img": "../img/productos-venta/nike7.jpg"},
+    {"id": 13, "nombre": "Air Jordan XXXVI FS", "precio": 42300, "img": "../img/productos-venta/nike8.jpg"},
+    {"id": 14, "nombre": "Kyrie Infinity", "precio": 32300, "img": "../img/productos-venta/nike9.jpg"},
+    {"id": 15, "nombre": "Nike Air Zoom G.T", "precio": 52300, "img": "../img/productos-venta/nike10.jpg"}
+
+]  

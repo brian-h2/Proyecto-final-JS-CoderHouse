@@ -33,3 +33,5 @@ const camisetas = [
     {id: 28, nombre: "Orlando Magic", precio: 10500, img: "../img/productos-venta/camisetas/13.jpg", talle: "Talle S.M"},
 
 ]
+
+
