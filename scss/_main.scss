@@ -275,9 +275,63 @@
     margin-top: 100px;
     .contenedor-compra{
         display: flex;
-        flex-direction: row;
         align-items: center;
-        gap: 10px;
+        .container{
+            box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+            height: 360px;
+            h2{
+                color: black;
+                text-align: center;
+                font-size: 40px;
+                font-weight: 300;
+                letter-spacing: 2px;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+                margin-bottom: 50px;
+            }
+            button {
+                /* Variables */
+               --button_radius: 0.75em;
+               --button_color: #e8e8e8;
+               --button_outline_color: #000000;
+               font-size: 12px;
+               font-weight: bold;
+               border: none;
+               border-radius: var(--button_radius);
+               background: var(--button_outline_color);
+              }
+              
+              .button_top {
+               display: block;
+               box-sizing: border-box;
+               border: 2px solid var(--button_outline_color);
+               border-radius: var(--button_radius);
+               padding: 0.75em 1.5em;
+               background: var(--button_color);
+               color: var(--button_outline_color);
+               transform: translateY(-0.2em);
+               transition: transform 0.1s ease;
+              }
+              
+              button:hover .button_top {
+                /* Pull the button upwards when hovered */
+               transform: translateY(-0.33em);
+              }
+              
+              button:active .button_top {
+                /* Push the button downwards when pressed */
+               transform: translateY(0);
+              }
+        }
+        .form-control{
+            outline: none;
+            background-color: rgba(255, 255, 255, 0);
+            border: 1px solid rgba(0, 0, 0, 0.422);
+            border-left: 0px;
+            border-top: 0px;
+            border-right: 0px;
+            border-radius: 0px;
+        }
+        
         h3{
             @include titles; 
         }
@@ -290,44 +344,46 @@
                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             }
         }
-        .carrito {
-            width: 1200px;
-            background-color: #E1E5EA;
+        .carrito-compra{
+            width: 1000px;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
-            .table{
-                margin-left: 300px;
-                tbody{
-                    tr{
-
-                        td{
-                            padding-top: 40px;
-                            .imagen-carrito {
-                                border: 1px solid black
+            align-items: center;
+            padding-left: 100px;
+            .carrito {
+                width: 100%;
+                background-color: #E1E5EA;
+                .table{
+                    tbody{ 
+                        tr{
+                            td{
+                                padding-top: 40px;
+                                .imagen-carrito {
+                                    border: 1px solid black
+                                }
+                                button {
+                                    color: #090909;
+                                    padding: 0.7em 1.7em;
+                                    font-size: 11px;
+                                    border-radius: 0.5em;
+                                    background: #e8e8e8;
+                                    border: 1px solid #e8e8e8;
+                                    transition: all .3s;
+                                    box-shadow: 6px 6px 12px #c5c5c5,
+                                                -6px -6px 12px #ffffff;
+                                    margin-left: 100px;
+                                   }
+                                   
+                                   button:hover {
+                                    border: 1px solid white;
+                                   }
+                                   
+                                   button:active {
+                                    box-shadow: 4px 4px 12px #c5c5c5,
+                                                -4px -4px 12px #ffffff;
+                                   }
                             }
-                            button {
-                                color: #090909;
-                                padding: 0.7em 1.7em;
-                                font-size: 11px;
-                                border-radius: 0.5em;
-                                background: #e8e8e8;
-                                border: 1px solid #e8e8e8;
-                                transition: all .3s;
-                                box-shadow: 6px 6px 12px #c5c5c5,
-                                            -6px -6px 12px #ffffff;
-                                margin-left: 100px;
-                               }
-                               
-                               button:hover {
-                                border: 1px solid white;
-                               }
-                               
-                               button:active {
-                                box-shadow: 4px 4px 12px #c5c5c5,
-                                            -4px -4px 12px #ffffff;
-                               }
                         }
                     }
                 }
@@ -343,9 +399,6 @@
         text-align: center;
     }
 }  
-
-
-//Formulario de pago
 
 //Formulario inicio sesion
 

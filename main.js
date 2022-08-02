@@ -107,7 +107,6 @@ function eliminarProducto(productoId) {
 }
 
 //Este permite mostrar al producto cuando se va agregando al carrito y su precio total
-
 const mostrarProducto = () => {
 
         carritoLista.innerHTML=""
@@ -139,9 +138,11 @@ const mostrarProducto = () => {
 
         localStorage.setItem('carrito', JSON.stringify(carrito))
         })
+        
         let precio = precioFinal.innerText = carrito.reduce((acc, prod) => acc + prod.precio, 0)
         precio
 }
+
 
 //Esta seccion es para pagar los productos
 
