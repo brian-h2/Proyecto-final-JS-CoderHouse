@@ -46,12 +46,15 @@ for(const producto of camisetas) {
 }
 
 //Creo un fetch para consultar a traves de una ruta relativa los productos y asi poder "pintarlos" en el html
+/*Colocamos un async para la arrow function asi la misma se vuelve sincronica mientras las siguientes constantes estan a la espera de que la promesa se resuelva
+y asi poder ejecutar el forEach*/
 
-fetch('../js/JSON/zapatillas.json')    
-        .then( (resolve) => resolve.json())
-        .then( (data) => {
-
-        data.forEach((producto) => {
+const pintarZapatillas = async () => {
+        
+        const datos = await fetch('../js/JSON/zapatillas.json')    
+        const respuesta = await datos.json()
+        
+        respuesta.forEach((producto) => {   
                 let columna = document.createElement(`div`)
                 columna.classList.add(`columna`)
                 columna.id = `columna-${producto.id}`
@@ -80,11 +83,18 @@ fetch('../js/JSON/zapatillas.json')
                                 'success'
                                 )
                         }
-                )        
+                )    
+                const buton = document.getElementById('buton-precio')
+
+                buton.addEventListener('click', () => {
+                        console.log(listaFiltrado)
+                })
         })
-})
-       
  
+} 
+pintarZapatillas()
+
+//Arrow function para pushear el elemento que se elija a la variable carrito
 const agregarCarrito1 = (prodId) => {
         const elemento = camisetas.find((prod) => prod.id === prodId)
         carrito.push(elemento)
@@ -135,31 +145,17 @@ const mostrarProducto = () => {
         carritoLista.appendChild(product)
         
         //Seteamos el setItem para darle un nombre y valor al carrito, transformando el objeto a un string (Formato JSON)
+        })
 
         localStorage.setItem('carrito', JSON.stringify(carrito))
-        })
         
         let precio = precioFinal.innerText = carrito.reduce((acc, prod) => acc + prod.precio, 0)
         precio
 }
-
-
-//Esta seccion es para pagar los productos
-
-const carro = document.getElementById("carrito-pagos") 
-const contador = document.getElementById("contador-lista")
-
-/*
-const buton = document.getElementById('button-filtro-precio')
-
-buton.addEventListener('click', () => {
-        console.log(listaFiltrado)
-})
 
 const listaFiltrado = lista.filter(producto => {
         if(producto.precio < 32000) {
                 return producto.precio
         }
 })
-*/
 

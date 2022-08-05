@@ -2,9 +2,6 @@
   padding: 0;
   margin: 0; }
 
-html {
-  scroll-behavior: smooth; }
-
 /*Variables*/
 /*Imports*/
 body {
@@ -449,7 +446,8 @@ body {
 
 .seccion-4 {
   width: 100%;
-  margin-top: 100px; }
+  margin-top: 100px;
+  margin-bottom: 60px; }
   .seccion-4 .contenedor-compra {
     display: flex;
     align-items: center; }
@@ -820,3 +818,24 @@ footer {
           border-width: 0px 0px 1px 0px;
           font-size: 100%;
           font-size: 20px; }
+
+.pie-productos {
+  background-color: gray;
+  padding-top: 30px; }
+  .pie-productos .iconos {
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 30px; }
+    .pie-productos .iconos img {
+      width: 56px;
+      color: white;
+      border-radius: 50%;
+      transition: all 0.5s ease-in-out; }
+      .pie-productos .iconos img:hover {
+        transform: scale(1.2) translate(0px, -10px);
+        border: 1px solid white;
+        border-radius: 60%;
+        cursor: pointer; }
+  .pie-productos p {
+    color: black;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; }
