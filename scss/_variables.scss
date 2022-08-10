@@ -34,7 +34,7 @@
 @mixin cards {
         display: flex;
         align-items: center;
-        justify-content: right;
+        justify-content: center;
         flex-wrap: wrap;
         padding-top: 50px;
         gap: 70px;

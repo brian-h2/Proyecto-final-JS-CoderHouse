@@ -12,7 +12,7 @@ const redireccionarPagina = () => {
     return new Promise( (resolve, reject) => {
         setTimeout(() => {
             resolve(window.location.href = '../index.html')
-        }, 1200)
+        }, 1000)
     })
 }
 

@@ -20,7 +20,7 @@ for(const producto of camisetas) {
         columnaCamisetas.id = `columnaCamisetas-${producto.id}`
         columnaCamisetas.innerHTML = `
                 <div class="card" style="max-width: 400px; width: 100%;">
-                        <img src=${producto.img} alt="" class="imagen-productos">
+                        <img src=${producto.img} alt="card-numero ${producto.id}" class="imagen-productos">
                         <div class="card-body">
                                 <p class="card-text">Nombre: <b>${producto.nombre}</b></p>
                                 <p class="card-text">Precio: <b>$${producto.precio}</b></p>
@@ -49,18 +49,59 @@ for(const producto of camisetas) {
 /*Colocamos un async para la arrow function asi la misma se vuelve sincronica mientras las siguientes constantes estan a la espera de que la promesa se resuelva
 y asi poder ejecutar el forEach*/
 
+
+
 const pintarZapatillas = async () => {
         
         const datos = await fetch('../js/JSON/zapatillas.json')    
         const respuesta = await datos.json()
         
-        respuesta.forEach((producto) => {   
+        
+        const buton = document.getElementById('buton-precio')
+
+        buton.addEventListener('click', () => {
+                nuevoProducto.forEach((producto) => {   
+                        let columna = document.createElement(`div`)
+                        columna.classList.add(`columna`)
+                        columna.id = `columna-${producto.id}`
+                        columna.innerHTML = `
+                                <div class="card" style="max-width: 400px; width: 100%;">
+                                        <img src=${producto.img} alt="" class="imagen-productos">
+                                        <div class="card-body">
+                                                <p class="card-text">Nombre: <b>${producto.nombre}</b></p>
+                                                <p class="card-text">Precio: <b>$${producto.precio}</b></p>
+                                                <button id="agregar${producto.id}" class="button-agregar"> Comprar</button>
+                                        </div> 
+                                </div>
+                                `
+                        contenedorProductos.appendChild(columna)
+                        
+                        //Boton para agregar productos al carrito en base al ID
+                                
+                        const boton = document.getElementById(`agregar${producto.id}`)
+                                
+                        boton.addEventListener('click', () => {
+                                agregarCarrito(producto.id)
+                                //Coloco este alert para informarle al usuario que agrego correctamente el producto al carrito
+                                Swal.fire(
+                                        'Se agrego correctamente al carrito',
+                                        'Puede seguir comprando',
+                                        'success'
+                                        )
+                                }
+                        ) 
+                           
+        })})
+
+        let productoOriginal = respuesta
+
+        productoOriginal.forEach((producto) => {   
                 let columna = document.createElement(`div`)
                 columna.classList.add(`columna`)
                 columna.id = `columna-${producto.id}`
                 columna.innerHTML = `
                         <div class="card" style="max-width: 400px; width: 100%;">
-                                <img src=${producto.img} alt="" class="imagen-productos">
+                                <img src=${producto.img} alt="card-numero${producto.id}" class="imagen-productos">
                                 <div class="card-body">
                                         <p class="card-text">Nombre: <b>${producto.nombre}</b></p>
                                         <p class="card-text">Precio: <b>$${producto.precio}</b></p>
@@ -84,14 +125,10 @@ const pintarZapatillas = async () => {
                                 )
                         }
                 )    
-                const buton = document.getElementById('buton-precio')
-
-                buton.addEventListener('click', () => {
-                        console.log(listaFiltrado)
-                })
+        
         })
  
-} 
+}
 pintarZapatillas()
 
 //Arrow function para pushear el elemento que se elija a la variable carrito
@@ -115,6 +152,7 @@ function eliminarProducto(productoId) {
         carrito.splice(inicio, 1)
         mostrarProducto()
 }
+
 
 //Este permite mostrar al producto cuando se va agregando al carrito y su precio total
 const mostrarProducto = () => {
@@ -151,9 +189,17 @@ const mostrarProducto = () => {
         
         let precio = precioFinal.innerText = carrito.reduce((acc, prod) => acc + prod.precio, 0)
         precio
+
+       
 }
 
-const listaFiltrado = lista.filter(producto => {
+//Utilizo el localStorage para obtener el precio del carrito y validar en el formulario de pago si el pago ingresado es correcto
+
+let storage = JSON.parse(localStorage.getItem('carrito'))
+let precioValido = storage.reduce((acc, prod) => acc + prod.precio, 0)
+
+
+let listaFiltrado = lista.filter(producto => {
         if(producto.precio < 32000) {
                 return producto.precio
         }
