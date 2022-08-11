@@ -1,7 +1,7 @@
 * {
   padding: 0;
   margin: 0;
-  user-select: none; }
+  box-sizing: border-box; }
 
 /*Variables*/
 /*Imports*/
@@ -48,6 +48,51 @@ body {
           color: white;
           transition: 0.5s all ease;
           cursor: pointer; }
+
+.menu {
+  background-color: #000000;
+  height: 75px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .menu .btn_menu {
+    margin-right: 30px;
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+    display: none; }
+  .menu img {
+    color: white;
+    width: 100px;
+    margin: 5px;
+    margin-left: 15px; }
+  .menu .menu_items {
+    display: flex;
+    list-style-type: none;
+    margin-right: 30px;
+    margin-top: 12px; }
+    .menu .menu_items li {
+      border-radius: 3px;
+      margin: 0 5px;
+      transition: 1s all ease-in-out; }
+      .menu .menu_items li:active {
+        background-color: rgba(244, 0, 0, 0.3); }
+      .menu .menu_items li:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        transition: 1s all ease-in-out; }
+      .menu .menu_items li a {
+        padding: 7px 13px;
+        text-decoration: none;
+        font-size: 22px;
+        display: block;
+        color: #aaaaaa;
+        transition: 1s all ease-in-out; }
+        .menu .menu_items li a:hover {
+          color: white;
+          transition: 1s all ease-in-out; }
+
+ul.show {
+  top: -65px; }
 
 .slide .carousel-inner {
   width: 100%;
@@ -454,6 +499,7 @@ body {
     align-items: center; }
     .seccion-4 .contenedor-compra .container {
       box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+      width: 800px;
       height: 360px; }
       .seccion-4 .contenedor-compra .container h2 {
         color: black;
@@ -842,6 +888,56 @@ footer {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     user-select: none; }
 
+@media screen and (max-width: 1488px) {
+  .seccion-4 .contenedor-compra {
+    flex-wrap: wrap-reverse;
+    justify-content: center; } }
+
+@media screen and (max-width: 1000px) {
+  .seccion-4 .contenedor-compra .carrito .carrito-compra {
+    width: 500px; } }
+
+@media screen and (max-width: 952px) {
+  .menu .menu_items li a {
+    font-size: 20px; }
+  .menu img {
+    width: 80px; } }
+
+@media screen and (max-width: 858px) {
+  .menu {
+    height: 65px; }
+    .menu .btn_menu {
+      display: inline-flex; }
+    .menu .menu_items {
+      position: fixed;
+      width: 100vw;
+      height: calc(100%  - 65px);
+      top: -100vw;
+      text-align: center;
+      transition: all .4s;
+      flex-direction: column; }
+      .menu .menu_items li {
+        margin: 30px 0 0 0;
+        line-height: 30px; }
+        .menu .menu_items li a {
+          font-size: 21px;
+          color: white;
+          font-weight: bold; }
+          .menu .menu_items li a:hover {
+            color: red; }
+        .menu .menu_items li:hover {
+          background: none; }
+    .menu .logo {
+      font-size: 25px;
+      padding-left: 35px; } }
+
+@media screen and (max-width: 858px) and (orientation: landscape) {
+  .menu .menu_items {
+    overflow: scroll;
+    height: calc(100% - 65px); }
+    .menu .menu_items li {
+      margin: 5px 0 0 0; } }
+
 @media screen and (max-width: 768px) {
   .inicio-sesion .title-footer {
     margin: 0px; }
@@ -849,5 +945,10 @@ footer {
       font-size: 40px; }
     .inicio-sesion .title-footer p {
       font-size: 24px; }
-  .seccion-4 {
-    display: none; } }
+  .seccion-4 .contenedor-compra .carrito .carrito-compra {
+    width: 600px; }
+  .seccion-4 .container {
+    margin-bottom: 200px;
+    width: 500px;
+    height: 550px !important;
+    background-color: none; } }

@@ -39,3 +39,57 @@
         }
     }
 }
+
+.menu{
+    background-color: #000000;
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .btn_menu{
+      margin-right: 30px;
+      font-size: 25px;
+      color: white;
+      cursor: pointer;
+      display: none;
+    }
+    img{
+        color: white;
+        width: 100px;
+        margin: 5px;
+        margin-left: 15px;
+    }
+    .menu_items{
+        display: flex;
+        list-style-type: none;
+        margin-right: 30px;
+        margin-top: 12px;
+        li{
+            border-radius: 3px;
+            margin: 0 5px;
+            transition: 1s all ease-in-out;
+            &:active{
+                background-color: rgba(244, 0, 0, 0.3);
+            }
+            &:hover{
+                background-color: rgba(255, 255, 255, 0.3);
+                transition: 1s all ease-in-out;
+            }
+            a{
+                padding: 7px 13px;
+                text-decoration: none;
+                font-size: 22px;
+                display: block;
+                color: #aaaaaa;
+                transition: 1s all ease-in-out;
+                &:hover{
+                    color: rgb(255, 255, 255);
+                    transition: 1s all ease-in-out;
+                }
+            }
+        }
+    }
+}
+ul.show{
+    top: -65px;
+}

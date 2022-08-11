@@ -30,14 +30,17 @@
 <body style="background-color: #E1E5EA">
     
     <!--Menu de navegacion-->
-    <nav class="nav-index">
-      <img src="../img/nav/logo.png" alt="logo de basket">
-      <ul>
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="#seccion-2">Calzado</a></li>
-          <li><a href="#seccion-3">Camisetas</a></li>
-          <li><a href="#seccion-4"><i class="fa-solid fa-cart-shopping fa-"></i></a></li>
+    <nav class="menu">
+      <img src="../img/nav/logo.png">
+      <ul class="menu_items">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Calzado</a></li>
+        <li><a href="#">Camisetas</a></li>
+        <li><a href="#"><i class="fa-solid fa-cart-shopping fa-"></i></a></li>
       </ul>
+      <span class="btn_menu">
+        <i class="fa fa-bars"></i>
+      </span>
     </nav>
     
     <!--Carrusel de imagenes para header-->
@@ -74,18 +77,20 @@
     <main class="contenido">
       <!--Seccion de zapatillas-->
       <section id="seccion-2" class="seccion-2-zapas" >
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-              Seleccione opciones
+          <h2>Zapatillas para basket</h2>
+          
+          <div class="dropdown" style="padding-left: 20px;">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+              Precio
             </button>
-            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-              <li><a class="dropdown-item" href="#" id="buton-precio">Precio</a></li>
-              <li><a class="dropdown-item" href="#">Talle</a></li>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2" >
+              <li><a class="dropdown-item" href="#seccion-2" id="buton-precio">Menor</a></li>
+              <li><a class="dropdown-item" href="#seccion-2" id="buton-back">Volver a lista completa</a></li>
             </ul>
           </div>
-          <h2>Zapatillas para basket</h2>
+
           <div class="lista-compras" >
-              <div id="tarjetas-compra" class="tarjetas-compra">    
+              <div id="tarjetas-compra" class="tarjetas-compra" data-aos="zoom-in" data-aos-duration="1500">    
               </div>
       
           </div>
@@ -105,7 +110,7 @@
       <section id="seccion-4" class="seccion-4">
         <div class="contenedor-compra">
 
-          <div style="background-color: #E1E5EA;">
+          <div style="background-color: #E1E5EA;" class="carrito">
             <h3>Lista de compras</h3>
             <div class="head-carrito" style="margin-bottom: 50px" data-aos="zoom-in" data-aos-duration="1500">
                 <p class="precio-carrito">Precio total: $<span id="precioTotal">0</span> pesos</p>
@@ -130,7 +135,7 @@
             </div>
           
           </div>
-          <div class="container" style="width: 800px;" data-aos="zoom-in" data-aos-duration="2000">
+          <div class="container" data-aos="zoom-in" data-aos-duration="2000">
             <h2>Formulario de pago</h2>
             <form class="row g-3" id="formulario">
               

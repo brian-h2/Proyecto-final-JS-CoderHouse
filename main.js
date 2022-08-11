@@ -1,13 +1,17 @@
 
 //Constantes globales 
 
-const contenedorProductos = document.getElementById("tarjetas-compra")   
+let contenedorProductos = document.getElementById("tarjetas-compra")   
 
 const contenedorCamisetas = document.getElementById("tarjetas-camisetas")
 
 const carritoLista = document.getElementById("carrito-lista") 
 
 const precioFinal = document.getElementById("precioTotal")
+
+const buton = document.getElementById('buton-precio')
+
+const butonBack = document.getElementById('buton-back')
 
 let carrito = []
 
@@ -47,19 +51,70 @@ for(const producto of camisetas) {
 
 //Creo un fetch para consultar a traves de una ruta relativa los productos y asi poder "pintarlos" en el html
 /*Colocamos un async para la arrow function asi la misma se vuelve sincronica mientras las siguientes constantes estan a la espera de que la promesa se resuelva
-y asi poder ejecutar el forEach*/
+y asi poder ejecutar su funcion*/
 
 
 
 const pintarZapatillas = async () => {
-        
+
+
         const datos = await fetch('../js/JSON/zapatillas.json')    
         const respuesta = await datos.json()
+
+        let productosOriginal = respuesta
+
+        generarZapatillas()
+
+        //Creo una function para que al apretar volver a lista completano se me genere una lista nueva de los productos
+
+        function generarZapatillas() {
+                productosOriginal.forEach((producto) => { 
+                  
+                        let columna = document.createElement(`div`)
+                        columna.classList.add(`columna`)
+                        columna.id = `columna-${producto.id}`
+                        columna.innerHTML = `
+                                <div class="card" style="max-width: 400px; width: 100%;">
+                                        <img src=${producto.img} alt="card-numero${producto.id}" class="imagen-productos">
+                                        <div class="card-body">
+                                                <p class="card-text">Nombre: <b>${producto.nombre}</b></p>
+                                                <p class="card-text">Precio: <b>$${producto.precio}</b></p>
+                                                <button id="agregar${producto.id}" class="button-agregar"> Comprar</button>
+                                        </div> 
+                                </div>
+                                `
+                        contenedorProductos.appendChild(columna)
+                        
+                        //Boton para agregar productos al carrito en base al ID
+                                
+                        const boton = document.getElementById(`agregar${producto.id}`)
+                                
+                        boton.addEventListener('click', () => {
+                                agregarCarrito(producto.id)
+                                //Coloco este alert para informarle al usuario que agrego correctamente el producto al carrito
+                                Swal.fire(
+                                        'Se agrego correctamente al carrito',
+                                        'Puede seguir comprando',
+                                        'success'
+                                        )
+                                }
+                        )    
+                
+                })
+        }
+
+        //Utilizo filter para productos a menores a tal rango de precio
+
+        let listaFiltrado = lista.filter(producto => {
+                if(producto.precio < 32000) {
+                        return producto.precio
+                }
+        })
         
-        
-        const buton = document.getElementById('buton-precio')
+        let nuevoProducto = listaFiltrado
 
         buton.addEventListener('click', () => {
+                contenedorProductos.innerHTML = ""
                 nuevoProducto.forEach((producto) => {   
                         let columna = document.createElement(`div`)
                         columna.classList.add(`columna`)
@@ -93,41 +148,11 @@ const pintarZapatillas = async () => {
                            
         })})
 
-        let productoOriginal = respuesta
-
-        productoOriginal.forEach((producto) => {   
-                let columna = document.createElement(`div`)
-                columna.classList.add(`columna`)
-                columna.id = `columna-${producto.id}`
-                columna.innerHTML = `
-                        <div class="card" style="max-width: 400px; width: 100%;">
-                                <img src=${producto.img} alt="card-numero${producto.id}" class="imagen-productos">
-                                <div class="card-body">
-                                        <p class="card-text">Nombre: <b>${producto.nombre}</b></p>
-                                        <p class="card-text">Precio: <b>$${producto.precio}</b></p>
-                                        <button id="agregar${producto.id}" class="button-agregar"> Comprar</button>
-                                </div> 
-                        </div>
-                        `
-                contenedorProductos.appendChild(columna)
-                
-                //Boton para agregar productos al carrito en base al ID
-                        
-                const boton = document.getElementById(`agregar${producto.id}`)
-                        
-                boton.addEventListener('click', () => {
-                        agregarCarrito(producto.id)
-                        //Coloco este alert para informarle al usuario que agrego correctamente el producto al carrito
-                        Swal.fire(
-                                'Se agrego correctamente al carrito',
-                                'Puede seguir comprando',
-                                'success'
-                                )
-                        }
-                )    
-        
+        //Para volver a la lista completa de zapatillas
+        butonBack.addEventListener('click', () => {
+                contenedorProductos.innerHTML =""
+                generarZapatillas()
         })
- 
 }
 pintarZapatillas()
 
@@ -196,12 +221,15 @@ const mostrarProducto = () => {
 //Utilizo el localStorage para obtener el precio del carrito y validar en el formulario de pago si el pago ingresado es correcto
 
 let storage = JSON.parse(localStorage.getItem('carrito'))
-let precioValido = storage.reduce((acc, prod) => acc + prod.precio, 0)
+let precioValido = storage.reduce((acc, producto) => acc + producto.precio, 0)
 
-
-let listaFiltrado = lista.filter(producto => {
-        if(producto.precio < 32000) {
-                return producto.precio
+//Esto es para el responsive, no cuenta.
+document.addEventListener('DOMContentLoaded',() =>{
+        const btnMenu = document.querySelector('.btn_menu')
+        if(btnMenu){
+                btnMenu.addEventListener('click', () =>{
+                        const menu_items = document.querySelector('.menu_items')
+                        menu_items.classList.toggle('show')
+                })
         }
 })
-
