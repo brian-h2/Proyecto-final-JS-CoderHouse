@@ -7,7 +7,6 @@ const vaciarDatos = document.getElementById("button-sesion-vaciar")
 const almacen = localStorage
 
 
-
 const redireccionarPagina = () => {
     return new Promise( (resolve, reject) => {
         setTimeout(() => {
@@ -22,11 +21,6 @@ form.addEventListener("submit", function(evento){
     tecla(redireccionarPagina())
     click()
 })
-
-// Key publica de cuenta: kM1TKTIEXKlSizJv5
-// Key privada de cuenta: O_imi_ETnrnKweb6VxmmQ
-// Template ID: contact_form
-// 
 
 //Creamos una funcion que almacene los datos que ingrese en los campos de texto el usuario
 

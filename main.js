@@ -54,54 +54,58 @@ for(const producto of camisetas) {
 y asi poder ejecutar su funcion*/
 
 
-
-const pintarZapatillas = async () => {
-
-
+const generarZapatillas = async () => {
+        
         const datos = await fetch('../js/JSON/zapatillas.json')    
         const respuesta = await datos.json()
 
-        let productosOriginal = respuesta
-
-        generarZapatillas()
-
-        //Creo una function para que al apretar volver a lista completano se me genere una lista nueva de los productos
-
-        function generarZapatillas() {
-                productosOriginal.forEach((producto) => { 
-                  
-                        let columna = document.createElement(`div`)
-                        columna.classList.add(`columna`)
-                        columna.id = `columna-${producto.id}`
-                        columna.innerHTML = `
-                                <div class="card" style="max-width: 400px; width: 100%;">
-                                        <img src=${producto.img} alt="card-numero${producto.id}" class="imagen-productos">
-                                        <div class="card-body">
-                                                <p class="card-text">Nombre: <b>${producto.nombre}</b></p>
-                                                <p class="card-text">Precio: <b>$${producto.precio}</b></p>
-                                                <button id="agregar${producto.id}" class="button-agregar"> Comprar</button>
-                                        </div> 
-                                </div>
-                                `
-                        contenedorProductos.appendChild(columna)
-                        
-                        //Boton para agregar productos al carrito en base al ID
-                                
-                        const boton = document.getElementById(`agregar${producto.id}`)
-                                
-                        boton.addEventListener('click', () => {
-                                agregarCarrito(producto.id)
-                                //Coloco este alert para informarle al usuario que agrego correctamente el producto al carrito
-                                Swal.fire(
-                                        'Se agrego correctamente al carrito',
-                                        'Puede seguir comprando',
-                                        'success'
-                                        )
-                                }
-                        )    
+        let productosOrinal = respuesta
+        
+        productosOrinal.forEach((producto) => { 
                 
-                })
-        }
+                dibujarColumnas(producto)
+                
+                //Boton para agregar productos al carrito en base al ID        
+                const boton = document.getElementById(`agregar${producto.id}`)
+                        
+                boton.addEventListener('click', () => {
+                        agregarCarrito(producto.id)
+                        //Coloco este alert para informarle al usuario que agrego correctamente el producto al carrito
+                        Swal.fire(
+                                'Se agrego correctamente al carrito',
+                                'Puede seguir comprando',
+                                'success'
+                                )
+                        }
+                )    
+        
+        })
+}
+
+//Creo esta function para evitar repetir codigo en algunas partes donde genero columnas
+
+function dibujarColumnas(producto) {
+        let columna = document.createElement(`div`)
+        columna.classList.add(`columna`)
+        columna.id = `columna-${producto.id}`
+        columna.innerHTML = `
+                <div class="card" style="max-width: 400px; width: 100%;">
+                        <img src=${producto.img} alt="" class="imagen-productos">
+                        <div class="card-body">
+                                <p class="card-text">Nombre: <b>${producto.nombre}</b></p>
+                                <p class="card-text">Precio: <b>$${producto.precio}</b></p>
+                                <button id="agregar${producto.id}" class="button-agregar"> Comprar</button>
+                        </div> 
+                </div>
+        `
+        contenedorProductos.appendChild(columna)
+}
+
+
+
+const pintarZapatillas = () => {
+        
+        generarZapatillas()
 
         //Utilizo filter para productos a menores a tal rango de precio
 
@@ -115,21 +119,9 @@ const pintarZapatillas = async () => {
 
         buton.addEventListener('click', () => {
                 contenedorProductos.innerHTML = ""
-                nuevoProducto.forEach((producto) => {   
-                        let columna = document.createElement(`div`)
-                        columna.classList.add(`columna`)
-                        columna.id = `columna-${producto.id}`
-                        columna.innerHTML = `
-                                <div class="card" style="max-width: 400px; width: 100%;">
-                                        <img src=${producto.img} alt="" class="imagen-productos">
-                                        <div class="card-body">
-                                                <p class="card-text">Nombre: <b>${producto.nombre}</b></p>
-                                                <p class="card-text">Precio: <b>$${producto.precio}</b></p>
-                                                <button id="agregar${producto.id}" class="button-agregar"> Comprar</button>
-                                        </div> 
-                                </div>
-                                `
-                        contenedorProductos.appendChild(columna)
+                nuevoProducto.forEach((producto) => {
+                        
+                        dibujarColumnas(producto)  
                         
                         //Boton para agregar productos al carrito en base al ID
                                 
@@ -215,13 +207,13 @@ const mostrarProducto = () => {
         let precio = precioFinal.innerText = carrito.reduce((acc, prod) => acc + prod.precio, 0)
         precio
 
+        localStorage.setItem('precio', JSON.stringify(precio))
        
 }
 
 //Utilizo el localStorage para obtener el precio del carrito y validar en el formulario de pago si el pago ingresado es correcto
+let carro = JSON.parse(localStorage.getItem('precio'))
 
-let storage = JSON.parse(localStorage.getItem('carrito'))
-let precioValido = storage.reduce((acc, producto) => acc + producto.precio, 0)
 
 //Esto es para el responsive, no cuenta.
 document.addEventListener('DOMContentLoaded',() =>{
